@@ -1,13 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.neo {
+		box-shadow: 5px 5px 17px #5c5b5b, -5px -5px 17px #e1cbcb;
+	}
+
+	.AccHeaders {
+		@apply !text-blue-gray-700 hover:!text-yellow-600;
+	}
+
+	.AccDescription {
+		@apply !text-blue-gray-700 !text-xl;
+	}
+
+	.buttons {
+		@apply neo mx-2 my-1 px-2 py-3 rounded-xl text-2xl text-blue-gray-800 font-sans flex flex-row justify-center bg-white;
+	}
+
+	.links {
+		@apply flex flex-col mx-auto my-2 px-2;
+	}
+
+	.icon {
+		@apply mt-1 mr-2;
+	}
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
 }
