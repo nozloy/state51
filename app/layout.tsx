@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Roboto, Caveat } from 'next/font/google'
+import { Roboto, Oswald } from 'next/font/google'
 import './globals.css'
 
 const roboto = Roboto({
@@ -8,10 +8,10 @@ const roboto = Roboto({
 	variable: '--font-roboto-mono',
 })
 
-const caveat = Caveat({
+const oswald = Oswald({
 	subsets: ['latin', 'cyrillic'],
 	weight: ['400', '700'],
-	variable: '--font-caveat',
+	variable: '--font-Oswald',
 })
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 		'мужская культура',
 	],
 	icons: {
-		icon: '/logo.svg',
+		icon: '/3angle.png',
 	},
 }
 
@@ -45,10 +45,10 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<head>
-				<link rel='icon' href='/logo.svg' />
+				<link rel='icon' href='/3angle.png' />
 			</head>
 			<body
-				className={`${roboto.variable} ${caveat.variable} antialiased font-sans `}
+				className={`${roboto.variable} ${oswald.variable} antialiased font-sans `}
 			>
 				<script
 					type='application/ld+json'
@@ -75,8 +75,8 @@ export default function RootLayout({
 							},
 							description:
 								'Барбершоп «Штат 51» — лучшие мужские стрижки, оформление бороды и бритье в Царево Village (Новое Шигалеево), Республика Татарстан.Уникальная атмосфера, философия, кресла начала XX века.',
-							logo: 'https://barberstate51.ru/logo.svg',
-							sameAs: ['https://t.me/barbershop_state51'], // при необходимости добавить ссылки
+							logo: 'https://barberstate51.ru/3angle.png',
+							sameAs: ['https://t.me/barbershop_state51'],
 						}),
 					}}
 				/>
