@@ -28,7 +28,7 @@ export const Museum: React.FC<Props> = ({ className }) => {
 				<p className='text-[56px]/15 font-bold font-stretch-extra-condensed'>
 					за кулисами
 				</p>
-				<p className='text-[74px]/15 font-bold font-stretch-semi-condensed'>
+				<p className='text-[84px]/15 font-black font-stretch-extra-condensed'>
 					штата 51
 				</p>
 				<p className='pt-6 text-[28px]/8 font-bold font-stretch-semi-condensed'>
