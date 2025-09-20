@@ -12,6 +12,6 @@ module.exports = {
 			},
 		],
 	},
-	allowedDevOrigins: ['*.yclients.com', 'nozloy.ru'],
+	allowedDevOrigins: ['*.yclients.com', 'nozloy.ru', 'barberstate51.ru'],
 }
 export default nextConfig
