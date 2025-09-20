@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Roboto, Oswald } from 'next/font/google'
 import './globals.css'
+import { Menu } from '@/components/ui/menu'
 
 const roboto = Roboto({
 	subsets: ['latin', 'cyrillic'],
@@ -48,7 +49,7 @@ export default function RootLayout({
 				<link rel='icon' href='/3angle.png' />
 			</head>
 			<body
-				className={`${roboto.variable} ${oswald.variable} antialiased font-sans `}
+				className={`${roboto.variable} ${oswald.variable} antialiased font-sans max-w-md min-h-dvh mx-auto bg-background`}
 			>
 				<script
 					type='application/ld+json'
@@ -81,6 +82,7 @@ export default function RootLayout({
 					}}
 				/>
 				{children}
+				<Menu />
 			</body>
 		</html>
 	)

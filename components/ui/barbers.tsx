@@ -12,14 +12,14 @@ interface Props {
 export const Barbers: React.FC<Props> = ({ className }) => {
 	return (
 		<div className={cn('min-h-[200px] w-full z-10 pt-6', className)}>
-			<div className='flex flex-row gap-4 p-4 items-start justify-start w-full min-h-[100px] border border-border bg-background/30 backdrop-blur-sm rounded-[30px] shadow-lg'>
+			<div className='flex flex-row gap-4 p-4 items-center justify-start w-full min-h-[100px] border border-border bg-background/30 backdrop-blur-sm rounded-[30px] shadow-lg'>
 				<Image
 					src='/artem_ava.jpg'
 					alt='logo'
 					width={100}
 					height={100}
 					priority
-					className='drop-shadow-lg rounded-full object-top object-cover w-[120px] h-[120px] -translate-y-8'
+					className='drop-shadow-lg rounded-3xl object-top object-cover w-[120px] h-[120px]'
 				/>
 				<div className='flex flex-col gap-2 items-left justify-left'>
 					<p className='text-2xl font-bold text-foreground select-none'>

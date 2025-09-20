@@ -1,6 +1,6 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
-import { Calendar, House, SoapDispenserDroplet } from 'lucide-react'
+import { House, ShoppingBag, User } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Contacts } from './contacts'
 import Link from 'next/link'
@@ -21,24 +21,22 @@ export const Menu: React.FC<Props> = ({ className }) => {
 						<House className='size-8' />
 					</Button>
 				</Link>
-				<Button
-					variant='default'
-					className='active:scale-95 hover:cursor-pointer rounded-full size-14 bg-background text-foreground hover:bg-background/50 active:bg-background/50 focus-visible:bg-background/50'
-				>
-					<Calendar className='size-8' />
-				</Button>
-				<Button
-					variant='default'
-					className='active:scale-95 hover:cursor-pointer rounded-full size-14 bg-background text-foreground hover:bg-background/50 active:bg-background/50 focus-visible:bg-background/50'
-				>
-					<SoapDispenserDroplet className='size-8' />
-				</Button>
-				{/* <Button
-					variant='default'
-					className='rounded-full size-14 bg-background text-foreground hover:bg-background/50 active:bg-background/50 focus-visible:bg-background/50'
-				>
-					<MessageSquare className='size-8' />
-				</Button> */}
+				<Link className='rounded-full bg-none' href='/profile'>
+					<Button
+						variant='default'
+						className='active:scale-95 hover:cursor-pointer rounded-full size-14 bg-background text-foreground hover:bg-background/50 active:bg-background/50 focus-visible:bg-background/50'
+					>
+						<User className='size-8' />
+					</Button>
+				</Link>
+				<Link className='rounded-full bg-none' href='/shop'>
+					<Button
+						variant='default'
+						className='active:scale-95 hover:cursor-pointer rounded-full size-14 bg-background text-foreground hover:bg-background/50 active:bg-background/50 focus-visible:bg-background/50'
+					>
+						<ShoppingBag className='size-8' />
+					</Button>
+				</Link>
 				<Contacts />
 			</div>
 		</div>

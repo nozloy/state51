@@ -27,7 +27,7 @@ export const About: React.FC<Props> = ({ className }) => {
 					size={20}
 					className={cn(
 						'transition-all duration-700 ease-in-out',
-						showAbout ? 'rotate-90 -translate-x-8 scale-150' : '',
+						showAbout ? 'rotate-90 scale-150' : '',
 					)}
 				/>
 			</div>
