@@ -2,7 +2,7 @@ import { About } from '@/components/ui/About'
 import { Barbers } from '@/components/ui/barbers'
 import { Footer } from '@/components/ui/footer'
 import { Logo } from '@/components/ui/logo'
-import { Museum } from '@/components/ui/museum'
+import { Telegram } from '@/components/shared/telegram'
 
 // import Image from 'next/image'
 
@@ -13,7 +13,7 @@ export default function Home() {
 				<Logo />
 				<About />
 				<Barbers />
-				<Museum />
+				<Telegram />
 				<Footer />
 			</div>
 		</div>

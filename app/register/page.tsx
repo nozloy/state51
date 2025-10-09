@@ -1,3 +1,4 @@
+import { BonusInfo } from '@/components/shared/bonus_info'
 import { ProfilePage } from '@/components/shared/profile_page'
 import { Metadata } from 'next'
 
@@ -36,5 +37,10 @@ export const metadata: Metadata = {
 
 // Серверная страница
 export default function Page() {
-	return <ProfilePage />
+	return (
+		<div className='min-h-svh mt-10 p-2 flex flex-col gap-4 items-center justify-start'>
+			<ProfilePage />
+			<BonusInfo />
+		</div>
+	)
 }

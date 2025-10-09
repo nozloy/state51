@@ -8,7 +8,7 @@ interface Props {
 	className?: string
 }
 
-export const Museum: React.FC<Props> = ({ className }) => {
+export const Telegram: React.FC<Props> = ({ className }) => {
 	return (
 		<Link href='https://t.me/barbershop_state51' target='_blank'>
 			<div

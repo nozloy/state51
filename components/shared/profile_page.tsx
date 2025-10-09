@@ -92,7 +92,7 @@ export const ProfilePage: React.FC = () => {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
 					card_id: cardId,
-					amount: 300,
+					amount: 600,
 					title: 'Бонус за регистрацию по реферальной ссылке',
 				}),
 			})
@@ -113,11 +113,11 @@ export const ProfilePage: React.FC = () => {
 	}
 	return (
 		<Suspense>
-			<div className='min-h-svh mt-10 p-2'>
+			<div className=''>
 				{loading && <div>Загрузка...</div>}
 				{user && !loading && <UserCard user={user} />}
 				{!user && !loading && (
-					<div className='max-w-md p-6 border rounded-xl shadow-lg '>
+					<div className='max-w-md p-6 border rounded-xl shadow-md bg-card'>
 						<h1 className='text-2xl font-bold mb-4'>Получить бонус</h1>
 
 						<p className='mb-4 text-sm text-gray-600'>

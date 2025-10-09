@@ -37,10 +37,12 @@ export const UserCard: React.FC<Props> = ({ className, user }) => {
 			/>
 			<div className='flex flex-col gap-2 items-start text-lg'>
 				<p>Приветствую, {user.name}</p>
-				<Badge variant='secondary'>
-					<BadgeCheckIcon size={22} />
-					{user.phone}
-				</Badge>
+				<div className='flex flex-col gap-2 items-center justify-start '>
+					<Badge variant='secondary'>
+						<BadgeCheckIcon size={22} />
+						{user.phone}
+					</Badge>
+				</div>
 			</div>
 			<Button
 				onClick={() => LogOut()}
