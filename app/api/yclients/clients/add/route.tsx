@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
 
 		if (res.status === 422) {
 			return NextResponse.json(
-				{ error: data?.errors?.[0]?.message || 'Пользователь существует' },
+				{ error: data?.errors?.[0]?.message || 'Вы уже являетесь клиентом' },
 				{ status: 422 },
 			)
 		}

@@ -3,31 +3,40 @@ import React, { useEffect } from 'react'
 import { Suspense, useState } from 'react'
 import { Checkbox } from '@/components/ui/checkbox'
 import Link from 'next/link'
+import { UserCard } from './user_card'
 
 export const ProfilePage: React.FC = () => {
 	const [name, setName] = useState('')
 	const [phone, setPhone] = useState('')
 	const [loading, setLoading] = useState(false)
-	const [status, setStatus] = useState('Регистрируем...')
+	const [dataloading, setDataloading] = useState(false)
+	const [status, setStatus] = useState('Начисляем бонусы...')
 	const [message, setMessage] = useState<string | null>(null)
 	const [termsAccepted, setTermsAccepted] = useState(true)
 	const [referral, setReferral] = useState<string>('')
+	const [user, setUser] = useState<User | null>(null)
 
 	useEffect(() => {
+		setLoading(true)
+		const storedUser = localStorage.getItem('yclients_user')
+		if (storedUser) {
+			setUser(JSON.parse(storedUser))
+		}
 		const params = new URLSearchParams(window.location.search)
 		const ref = params.get('referral')
 		if (ref) {
 			setReferral(ref)
 		}
+		setLoading(false)
 	}, [])
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
-		setLoading(true)
+		setDataloading(true)
 		setMessage(null)
 
 		if (!termsAccepted) {
-			setMessage('Для регистрации требуется принять условияй соглашения.')
-			setLoading(false)
+			setMessage('Для получения бонусов требуется принять условияй соглашения.')
+			setDataloading(false)
 			return
 		}
 
@@ -43,11 +52,11 @@ export const ProfilePage: React.FC = () => {
 			})
 			const data = await res.json()
 
-			if (!res.ok) throw new Error(data.error || 'Ошибка регистрации')
+			if (!res.ok) throw new Error(data.error || 'Ошибка начисления бонусов')
 			if (referral) {
 				await Promise.all([addBonus(referral), addBonus(phone)])
 			}
-			setMessage('Вы успешно зарегистрированы!')
+			setMessage('Бонусы начислены!')
 			setName('')
 			setPhone('')
 		} catch (err: unknown) {
@@ -57,11 +66,11 @@ export const ProfilePage: React.FC = () => {
 				setMessage('Неизвестная ошибка')
 			}
 		} finally {
-			setLoading(false)
+			setDataloading(false)
 		}
 	}
 	const addBonus = async (phone: string) => {
-		setLoading(true)
+		setDataloading(true)
 		setMessage(null)
 		setStatus('Начисляем бонусы...')
 		try {
@@ -99,90 +108,105 @@ export const ProfilePage: React.FC = () => {
 				setMessage('Неизвестная ошибка')
 			}
 		} finally {
-			setLoading(false)
+			setDataloading(false)
 		}
 	}
 	return (
 		<Suspense>
-			<div className='min-h-svh'>
-				<div className='max-w-md mx-2 mt-10 p-6 border rounded-xl shadow-lg '>
-					<h1 className='text-2xl font-bold mb-4'>Регистрация</h1>
+			<div className='min-h-svh mt-10 p-2'>
+				{loading && <div>Загрузка...</div>}
+				{user && !loading && <UserCard user={user} />}
+				{!user && !loading && (
+					<div className='max-w-md p-6 border rounded-xl shadow-lg '>
+						<h1 className='text-2xl font-bold mb-4'>Получить бонус</h1>
 
-					{referral && (
 						<p className='mb-4 text-sm text-gray-600'>
-							По приглашению от: <b>{referral}</b>
-							<br />
-							Вы получите скидку 600₽ на первый визит!
+							{referral && (
+								<div className='flex flex-row items-center justify-start'>
+									<p>По приглашению от: </p>
+									<b>{referral}</b>
+									<br />
+								</div>
+							)}
+							Зачислим Вам скидку 600₽ на первый визит.
 						</p>
-					)}
 
-					<form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-						<input
-							type='text'
-							placeholder='Имя'
-							value={name}
-							onChange={e => setName(e.target.value)}
-							className='border p-2 rounded'
-							required
-						/>
-						<input
-							type='tel'
-							pattern='[0-9]{11}'
-							placeholder='Телефон'
-							value={phone}
-							onChange={e => {
-								let digits = e.target.value.replace(/\D/g, '')
-								// Если начинается с 8 или 7, заменяем на 7, иначе добавляем 7 впереди
-								if (digits.startsWith('8')) {
-									digits = '7' + digits.slice(1)
-								} else if (!digits.startsWith('7')) {
-									digits = '7' + digits
-								}
-								digits = digits.slice(0, 11) // ограничиваем до 11 цифр
-								setPhone(digits)
-							}}
-							className='border p-2 rounded'
-							required
-							inputMode='tel'
-						/>
-						<div className='flex items-start gap-3'>
-							<Checkbox
-								id='terms-2'
-								checked={termsAccepted}
-								onCheckedChange={v => setTermsAccepted(!!v)}
+						<form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+							<input
+								type='text'
+								placeholder='Имя'
+								value={name}
+								onChange={e => setName(e.target.value)}
+								className='border p-2 rounded'
 								required
 							/>
-							<div className='grid gap-2'>
-								{/* <Label htmlFor='terms-2'>Соглашение</Label> */}
-								<p className='text-foreground text-sm -translate-y-1'>
-									Я предоставляю свое согласие на обработку персональных данных,
-									а также подтверждаю ознакомление и согласие с Политикой
-									конфиденциальности и Пользовательским соглашением.
-								</p>
+							<input
+								type='tel'
+								pattern='[0-9]{11}'
+								placeholder='Телефон'
+								value={phone}
+								onChange={e => {
+									let digits = e.target.value.replace(/\D/g, '')
+									// Если начинается с 8 или 7, заменяем на 7, иначе добавляем 7 впереди
+									if (digits.startsWith('8')) {
+										digits = '7' + digits.slice(1)
+									} else if (!digits.startsWith('7')) {
+										digits = '7' + digits
+									}
+									digits = digits.slice(0, 11) // ограничиваем до 11 цифр
+									setPhone(digits)
+								}}
+								className='border p-2 rounded'
+								required
+								inputMode='tel'
+							/>
+							<div className='flex items-start gap-3'>
+								<Checkbox
+									id='terms-2'
+									checked={termsAccepted}
+									onCheckedChange={v => setTermsAccepted(!!v)}
+									required
+								/>
+								<div className='grid gap-2'>
+									{/* <Label htmlFor='terms-2'>Соглашение</Label> */}
+									<p className='text-foreground text-sm -translate-y-1'>
+										Я предоставляю свое согласие на обработку персональных
+										данных, а также подтверждаю ознакомление и согласие с
+										<Link
+											href='/privacy'
+											className='underline ml-1'
+											target='_blank'
+										>
+											Политикой конфиденциальности.
+										</Link>
+									</p>
+								</div>
 							</div>
-						</div>
-						<button
-							type='submit'
-							disabled={loading}
-							className='bg-black text-white py-2 rounded hover:bg-gray-800 disabled:opacity-50'
-						>
-							{loading ? status : 'Зарегистрироваться'}
-						</button>
-						<div className='flex flex-row gap-2 items-center justify-center'>
-							<p className='text-center text-muted-foreground'>Есть аккаунт?</p>
-							<Link
-								href='/profile'
-								className='underline cursor-pointer text-muted-foreground'
+							<button
+								type='submit'
+								disabled={dataloading}
+								className='bg-black text-white py-2 rounded hover:bg-gray-800 disabled:opacity-50'
 							>
-								Войти
-							</Link>
-						</div>
-					</form>
+								{dataloading ? status : 'Получить бонусы'}
+							</button>
+							{/* <div className='flex flex-row gap-2 items-center justify-center'>
+								<p className='text-center text-muted-foreground'>
+									Есть аккаунт?
+								</p>
+								<Link
+									href='/profile'
+									className='underline cursor-pointer text-muted-foreground'
+								>
+									Войти
+								</Link>
+							</div> */}
+						</form>
 
-					{message && (
-						<p className='mt-4 text-center text-sm text-red-600'>{message}</p>
-					)}
-				</div>
+						{message && (
+							<p className='mt-4 text-center text-sm text-red-600'>{message}</p>
+						)}
+					</div>
+				)}
 			</div>
 		</Suspense>
 	)
