@@ -24,8 +24,7 @@ export const InviteFriendBanner: React.FC<Props> = ({ className }) => {
 					<div className='flex flex-row justify-between items-center w-full'>
 						<div className='flex flex-col gap-1 items-start text-lg font-sans pl-2'>
 							<p>Пригласи друга</p>
-							<p>и получи реальный кэш</p>
-							<p>за его первую стрижку</p>
+							<p>и получи реальный кэш за его первую стрижку</p>
 							<div className='inline-flex items-center gap-2'></div>
 						</div>
 						<Image
@@ -41,9 +40,9 @@ export const InviteFriendBanner: React.FC<Props> = ({ className }) => {
 						<div>
 							<Badge
 								variant='outline'
-								className='text-md bg-destructive text-card'
+								className='text-xl bg-destructive text-card'
 							>
-								600 ₽ за каждого друга
+								600 ₽ за каждого
 							</Badge>
 						</div>
 						<Link href='/invite-friend-info/'>
