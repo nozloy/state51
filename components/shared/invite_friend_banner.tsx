@@ -41,7 +41,7 @@ export const InviteFriendBanner: React.FC<Props> = ({ className }) => {
 						<div>
 							<Badge
 								variant='outline'
-								className='text-lg bg-destructive text-card'
+								className='text-md bg-destructive text-card'
 							>
 								600 ₽ за каждого друга
 							</Badge>

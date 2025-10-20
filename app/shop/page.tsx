@@ -26,7 +26,7 @@ export default function Shop() {
 					{Array(9)
 						.fill(0)
 						.map((_, i) => (
-							<Skeleton className='w-[120px] h-[180px]' key={i} />
+							<Skeleton className='grow size-22' key={i} />
 						))}
 				</div>
 			</div>
