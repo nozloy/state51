@@ -3,6 +3,7 @@ import { Barbers } from '@/components/ui/barbers'
 import { Footer } from '@/components/ui/footer'
 import { Logo } from '@/components/ui/logo'
 import { Telegram } from '@/components/shared/telegram'
+import { InviteFriendBanner } from '@/components/shared/invite_friend_banner'
 
 // import Image from 'next/image'
 
@@ -13,6 +14,7 @@ export default function Home() {
 				<Logo />
 				<About />
 				<Barbers />
+				<InviteFriendBanner />
 				<Telegram />
 				<Footer />
 			</div>

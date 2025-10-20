@@ -12,29 +12,32 @@ interface Props {
 export const Menu: React.FC<Props> = ({ className }) => {
 	return (
 		<div className={cn('sticky bottom-4 max-w-md w-full p-2 z-40', className)}>
-			<div className='backdrop-blur-md flex flex-row items-center justify-between p-4 bg-background/50 *:bg-background border-t border-border rounded-2xl shadow-lg *:shadow-sm'>
-				<Link className='rounded-full bg-none' href='/'>
+			<div className='backdrop-blur-md flex flex-row items-center justify-between p-4 bg-background/0 border-t border-border rounded-2xl shadow-lg'>
+				<Link href='/'>
 					<Button
-						variant='default'
-						className='active:scale-95 hover:cursor-pointer rounded-full size-14 bg-background text-foreground hover:bg-background/50 active:bg-background/50 focus-visible:bg-background/50'
+						variant='ghost'
+						className='active:scale-95 hover:cursor-pointer size-14 flex flex-col bg-background/0 hover:bg-background/0  text-foreground'
 					>
 						<House className='size-8' />
+						<p>Главная</p>
 					</Button>
 				</Link>
-				<Link className='rounded-full bg-none' href='/profile'>
+				<Link href='/profile'>
 					<Button
-						variant='default'
-						className='active:scale-95 hover:cursor-pointer rounded-full size-14 bg-background text-foreground hover:bg-background/50 active:bg-background/50 focus-visible:bg-background/50'
+						variant='ghost'
+						className='active:scale-95 hover:cursor-pointer size-14 flex flex-col bg-background/0 hover:bg-background/0  text-foreground'
 					>
 						<User className='size-8' />
+						<p>Профиль</p>
 					</Button>
 				</Link>
-				<Link className='rounded-full bg-none' href='/shop'>
+				<Link href='/shop'>
 					<Button
-						variant='default'
-						className='active:scale-95 hover:cursor-pointer rounded-full size-14 bg-background text-foreground hover:bg-background/50 active:bg-background/50 focus-visible:bg-background/50'
+						variant='ghost'
+						className='active:scale-95 hover:cursor-pointer  size-14  flex flex-col bg-background/0 hover:bg-background/0  text-foreground'
 					>
 						<ShoppingBag className='size-8' />
+						<p>Витрина</p>
 					</Button>
 				</Link>
 				<Contacts />

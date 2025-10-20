@@ -37,7 +37,7 @@ export default function LoginPage() {
 	}, [])
 
 	return (
-		<div className='flex flex-col gap-4 items-center justify-start max-w-md mx-auto mt-10 p-2 min-h-svh'>
+		<div className='flex flex-col gap-4 items-center justify-start max-w-md mx-auto mt-2 p-2 min-h-svh'>
 			{loading && (
 				<div className='flex items-center justify-center w-full h-full animate-spin'>
 					<LoaderCircle />

@@ -25,10 +25,11 @@ export const Contacts: React.FC<Props> = ({ className }) => {
 			<Drawer>
 				<DrawerTrigger asChild>
 					<Button
-						variant='default'
-						className='active:scale-95 hover:cursor-pointer rounded-full size-14 bg-background text-foreground hover:bg-background/50 active:bg-background/50 focus-visible:bg-background/50'
+						variant='ghost'
+						className='active:scale-95 hover:cursor-pointer size-14 bg-background/0 hover:bg-background/0 text-foreground flex flex-col'
 					>
 						<MessageSquare className='size-8' />
+						<p>Контакты</p>
 					</Button>
 				</DrawerTrigger>
 				<DrawerContent>

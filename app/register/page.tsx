@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 // Серверная страница
 export default function Page() {
 	return (
-		<div className='min-h-svh mt-10 p-2 flex flex-col gap-4 items-center justify-start'>
+		<div className='min-h-svh mt-2 p-2 flex flex-col gap-4 items-center justify-start'>
 			<ProfilePage />
 			<BonusInfo />
 		</div>
