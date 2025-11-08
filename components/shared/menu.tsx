@@ -11,12 +11,12 @@ interface Props {
 
 export const Menu: React.FC<Props> = ({ className }) => {
 	return (
-		<div className={cn('sticky bottom-4 max-w-md w-full p-2 z-40', className)}>
-			<div className='backdrop-blur-md flex flex-row items-center justify-between p-4 bg-background/0 border-t border-border rounded-2xl shadow-lg'>
+		<div className={cn('sticky bottom-0 max-w-md w-full p-2 z-40', className)}>
+			<div className='backdrop-blur-lg flex flex-row items-center justify-between p-2 px-4 bg-background/0 border-t border-border rounded-2xl shadow-lg '>
 				<Link href='/'>
 					<Button
 						variant='ghost'
-						className='active:scale-95 hover:cursor-pointer size-14 flex flex-col bg-background/0 hover:bg-background/0  text-foreground'
+						className='*:text-[12px] active:scale-95 hover:cursor-pointer size-14 bg-background/0 hover:bg-background/0 font-bold text-foreground flex flex-col gap-1'
 					>
 						<House className='size-8' />
 						<p>Главная</p>
@@ -25,7 +25,7 @@ export const Menu: React.FC<Props> = ({ className }) => {
 				<Link href='/profile'>
 					<Button
 						variant='ghost'
-						className='active:scale-95 hover:cursor-pointer size-14 flex flex-col bg-background/0 hover:bg-background/0  text-foreground'
+						className='*:text-[12px] font-bold active:scale-95 hover:cursor-pointer size-14 flex flex-col bg-background/0 hover:bg-background/0 text-foreground gap-1'
 					>
 						<User className='size-8' />
 						<p>Профиль</p>
@@ -34,7 +34,7 @@ export const Menu: React.FC<Props> = ({ className }) => {
 				<Link href='/shop'>
 					<Button
 						variant='ghost'
-						className='active:scale-95 hover:cursor-pointer  size-14  flex flex-col bg-background/0 hover:bg-background/0  text-foreground'
+						className='*:text-[12px] font-bold active:scale-95 hover:cursor-pointer  size-14  flex flex-col bg-background/0 hover:bg-background/0 text-foreground gap-1'
 					>
 						<ShoppingBag className='size-8' />
 						<p>Витрина</p>

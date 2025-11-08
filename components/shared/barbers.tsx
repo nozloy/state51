@@ -2,8 +2,9 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
-import { Badge } from './badge'
-import { Button } from './button'
+import { Badge } from '../ui/badge'
+import { Button } from '../ui/button'
+import { ExternalLink } from 'lucide-react'
 
 interface Props {
 	className?: string
@@ -21,13 +22,14 @@ export const Barbers: React.FC<Props> = ({ className }) => {
 					priority
 					className='drop-shadow-lg rounded-3xl object-top object-cover w-[120px] h-[120px]'
 				/>
-				<div className='flex flex-col gap-2 items-left justify-left'>
+				<div className='flex flex-col gap-1 items-start justify-center rounded-xl bg-slate-100 p-2 w-full '>
 					<p className='text-2xl font-bold text-foreground select-none'>
 						Артем
 					</p>
-					<div className='flex flex-row gap-2 items-center justify-center *:select-none'>
-						<Badge variant={'destructive'}>Старший барбер</Badge>
-						<Badge className='bg-blue-950 '>Владелец</Badge>
+					<div className='flex flex-row gap-1 items-start justify-center *:select-none *:text-muted-foreground text-sm'>
+						<p>Барбер</p>
+						<span>•</span>
+						<p>Владелец</p>
 					</div>
 					<Button
 						onClick={() =>
@@ -36,10 +38,11 @@ export const Barbers: React.FC<Props> = ({ className }) => {
 								'_blank',
 							)
 						}
-						variant='default'
-						className='rounded-xl mt-2 select-none cursor-pointer'
+						variant='outline'
+						className='rounded-xl mt-2 select-none cursor-pointer text-base w-full'
 					>
 						Записаться
+						<ExternalLink />
 					</Button>
 				</div>
 			</div>

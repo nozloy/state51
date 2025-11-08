@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Roboto, Oswald } from 'next/font/google'
 import './globals.css'
-import { Menu } from '@/components/ui/menu'
+import { Menu } from '@/components/shared/menu'
 
 const roboto = Roboto({
 	subsets: ['latin', 'cyrillic'],

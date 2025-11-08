@@ -10,8 +10,8 @@ import {
 	DrawerHeader,
 	DrawerTitle,
 	DrawerTrigger,
-} from './drawer'
-import { Button } from './button'
+} from '../ui/drawer'
+import { Button } from '../ui/button'
 import { MessageSquare } from 'lucide-react'
 import Link from 'next/link'
 
@@ -22,11 +22,11 @@ interface Props {
 export const Contacts: React.FC<Props> = ({ className }) => {
 	return (
 		<div className={cn('rounded-full', className)}>
-			<Drawer>
+			<Drawer modal={false}>
 				<DrawerTrigger asChild>
 					<Button
 						variant='ghost'
-						className='active:scale-95 hover:cursor-pointer size-14 bg-background/0 hover:bg-background/0 text-foreground flex flex-col'
+						className='*:text-[12px] font-bold active:scale-95 hover:cursor-pointer size-14 bg-background/0 hover:bg-background/0 text-foreground flex flex-col gap-1'
 					>
 						<MessageSquare className='size-8' />
 						<p>Контакты</p>
@@ -35,7 +35,7 @@ export const Contacts: React.FC<Props> = ({ className }) => {
 				<DrawerContent>
 					<div className='mx-auto  max-w-sm'>
 						<DrawerHeader>
-							<DrawerTitle>Контакты</DrawerTitle>
+							<DrawerTitle className='text-2xl font-mono'>Контакты</DrawerTitle>
 							<DrawerDescription>и социальные сети</DrawerDescription>
 						</DrawerHeader>
 						<div className='w-full flex flex-col items-center justify-center gap-2 p-4 *:w-full *:text-xl *:h-12'>

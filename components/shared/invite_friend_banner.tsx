@@ -22,7 +22,7 @@ export const InviteFriendBanner: React.FC<Props> = ({ className }) => {
 			<div className='flex flex-col gap-2 items-start justify-between border border-border p-6 rounded-xl shadow w-full bg-card'>
 				<div className='flex flex-col gap-2 items-start justify-between w-full'>
 					<div className='flex flex-row justify-between items-center w-full'>
-						<div className='flex flex-col gap-1 items-start text-lg font-sans pl-2'>
+						<div className='flex flex-col gap-0 items-start text-lg font-sans pl-2'>
 							<p>Пригласи друга</p>
 							<p>и получи реальный кэш за его первую стрижку</p>
 							<div className='inline-flex items-center gap-2'></div>
@@ -40,13 +40,16 @@ export const InviteFriendBanner: React.FC<Props> = ({ className }) => {
 						<div>
 							<Badge
 								variant='outline'
-								className='text-xl bg-destructive text-card'
+								className='text-base bg-destructive text-card rounded-xl py-1.5 px-4'
 							>
 								600 ₽ за каждого
 							</Badge>
 						</div>
 						<Link href='/invite-friend-info/'>
-							<Button variant='default' className='cursor-pointer'>
+							<Button
+								variant='default'
+								className='text-base cursor-pointer rounded-xl'
+							>
 								Узнать как <ExternalLink />
 							</Button>
 						</Link>
