@@ -39,7 +39,12 @@ export const ProfilePage: React.FC = () => {
 			setDataloading(false)
 			return
 		}
-
+		const customFields: Record<string, string> = {}
+		if (referral) {
+			customFields.ref = referral
+			customFields.bonus = 'false'
+		}
+		console.log('Custom fields to send:', customFields)
 		try {
 			const res = await fetch('/api/yclients/clients/add', {
 				method: 'POST',
@@ -47,14 +52,15 @@ export const ProfilePage: React.FC = () => {
 				body: JSON.stringify({
 					name,
 					phone,
-					custom_fields: referral ? { ref: referral } : {},
+					custom_fields: customFields,
 				}),
 			})
 			const data = await res.json()
 
 			if (!res.ok) throw new Error(data.error || 'Ошибка начисления бонусов')
 			if (referral) {
-				await Promise.all([addBonus(referral), addBonus(phone)])
+				// await Promise.all([addBonus(referral), addBonus(phone)])
+				await addBonus(phone)
 			}
 			setMessage('Бонусы начислены!')
 			setName('')

@@ -14,6 +14,10 @@ export async function POST(req: NextRequest) {
 			)
 		}
 
+		if (body.custom_fields?.ref) {
+			body.custom_fields.ref_bonus_given = false
+		}
+
 		const res = await fetch(
 			`https://api.yclients.com/api/v1/clients/${YC_COMPANY_ID}`,
 			{
@@ -23,6 +27,7 @@ export async function POST(req: NextRequest) {
 					'Content-Type': 'application/json',
 					Authorization: `Bearer ${YC_PARTNER_TOKEN}, User ${process.env.YC_USER_TOKEN}`,
 				},
+
 				body: JSON.stringify(body),
 			},
 		)
