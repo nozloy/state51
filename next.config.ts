@@ -1,9 +1,6 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-	/* config options here */
-}
-module.exports = {
 	output: 'standalone',
 	images: {
 		remotePatterns: [
@@ -15,4 +12,5 @@ module.exports = {
 	},
 	allowedDevOrigins: ['*.yclients.com', 'nozloy.ru', 'barberstate51.ru'],
 }
+
 export default nextConfig

@@ -1,0 +1,28 @@
+# dependencies
+node_modules
+
+# build output
+.next
+out
+coverage
+dist
+build
+
+# vcs and local tooling
+.git
+.gitignore
+.DS_Store
+.vscode
+.idea
+
+# local env and secrets
+.env
+.env.*
+!.env.example
+certificates
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
