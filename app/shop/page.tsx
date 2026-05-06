@@ -2,27 +2,32 @@ import { Item, ItemContent, ItemMedia, ItemTitle } from '@/components/ui/item'
 import { ShopItemMore } from '@/components/shared/shop_item_more'
 import { shop_items, ShopItem } from '@/constants/shop_items'
 import { CircleAlert } from 'lucide-react'
+import { BrandTopBar } from '@/modules/home/ui/brand-top-bar'
 
 export default function Shop() {
 	return (
-		<div className='relative  text-foreground flex flex-col mt-2 p-2 gap-4 min-h-dvh'>
-			<div className='flex flex-col gap-4 p-4'>
-				<h1 className='text-2xl font-bold inline-flex items-end gap-2 font-mono'>
+		<div className='brand51-main pb-24'>
+			<BrandTopBar />
+			<div className='flex flex-col gap-4 px-4 py-2'>
+				<h1 className='font-accent text-5xl uppercase leading-none text-[#ead8b7]'>
 					<p>Витрина</p>
 				</h1>
-				<div className='flex w-full flex-col gap-4 [--radius:1rem]'>
-					<Item variant='muted'>
+				<div className='flex w-full flex-col gap-3 [--radius:1rem]'>
+					<Item
+						variant='muted'
+						className='rounded-md border border-white/10 bg-black/24'
+					>
 						<ItemMedia>
-							<CircleAlert />
+							<CircleAlert className='text-[#cfb689]' />
 						</ItemMedia>
 						<ItemContent>
-							<ItemTitle className='line-clamp-2 text-sm'>
+							<ItemTitle className='line-clamp-2 text-base text-[#e8dcc7]'>
 								Наличие и цены уточняйте у барбера
 							</ItemTitle>
 						</ItemContent>
 					</Item>
 				</div>
-				<div className='flex flex-wrap gap-5 justify-between'>
+				<div className='grid grid-cols-2 gap-3'>
 					{shop_items.map((item: ShopItem, i: number) => (
 						<ShopItemMore key={i} item={item} />
 					))}

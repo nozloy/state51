@@ -1,0 +1,125 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - img "Барбершоп Штат 51" [ref=e8]
+          - generic [ref=e10]:
+            - generic [ref=e11]:
+              - link "Перейти на главную" [ref=e12] [cursor=pointer]:
+                - /url: /
+                - img "Штат 51" [ref=e13]
+              - generic [ref=e14]:
+                - 'link "Позвонить: +7 (937) 520-00-51" [ref=e15] [cursor=pointer]':
+                  - /url: tel:+79375200051
+                  - img [ref=e16]
+                - button "Открыть дополнительное меню" [ref=e20]:
+                  - img
+            - generic [ref=e22]:
+              - heading "Мужской стиль. Без компромиссов." [level=1] [ref=e23]:
+                - generic [ref=e24]: Мужской стиль.
+                - generic [ref=e25]: Без компромиссов.
+              - paragraph [ref=e26]: Барбершоп в Царево с характером.
+              - link "Записаться" [ref=e27] [cursor=pointer]:
+                - /url: https://n796028.yclients.com/company/746811/personal/select-services?o=
+                - generic [ref=e28]: Записаться
+                - img [ref=e29]
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - img [ref=e34]
+            - generic [ref=e37]:
+              - paragraph [ref=e38]: Царево
+              - paragraph [ref=e39]: ул. Габдуллы Тукая, 14
+          - generic [ref=e40]:
+            - img [ref=e41]
+            - generic [ref=e44]:
+              - paragraph [ref=e45]: Ежедневно
+              - paragraph [ref=e46]: По записи, уточняйте при записи
+          - generic [ref=e47]:
+            - img [ref=e48]
+            - generic [ref=e54]:
+              - paragraph [ref=e55]: Мужские стрижки
+              - paragraph [ref=e56]: И бритьё
+      - generic [ref=e57]:
+        - generic:
+          - img
+        - generic [ref=e58]:
+          - img "Артем, владелец барбершопа Штат 51" [ref=e60]
+          - generic [ref=e61]:
+            - generic [ref=e62]:
+              - paragraph [ref=e63]: Владелец и главный барбер
+              - heading "Артем" [level=2] [ref=e64]
+              - paragraph [ref=e65]: Более 15 лет в индустрии. Для меня барберинг — это не просто стрижка, а стиль жизни. Добро пожаловать в Штат 51.
+              - paragraph [ref=e66]: Артем
+            - link "Подробнее об Артеме" [ref=e67] [cursor=pointer]:
+              - /url: /contacts
+      - generic [ref=e68]:
+        - img "Пригласи друга" [ref=e69]
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - paragraph [ref=e73]: Пригласи друга
+            - paragraph [ref=e74]: 600 ₽
+            - paragraph [ref=e75]: Получите по 600 ₽ после его первого визита
+          - link "Узнать" [ref=e76] [cursor=pointer]:
+            - /url: /friends
+            - text: Узнать
+            - img [ref=e77]
+      - generic [ref=e79]:
+        - generic [ref=e80]:
+          - heading "Услуги" [level=2] [ref=e81]
+          - link "Смотреть все" [ref=e82] [cursor=pointer]:
+            - /url: /services
+            - text: Смотреть все
+            - img [ref=e83]
+        - generic [ref=e86]:
+          - link "Мужская стрижка Мужская стрижка от 1 200 ₽" [ref=e87] [cursor=pointer]:
+            - /url: /booking
+            - img "Мужская стрижка" [ref=e89]
+            - generic [ref=e91]:
+              - paragraph [ref=e92]: Мужская стрижка
+              - paragraph [ref=e93]: от 1 200 ₽
+          - link "Бритьё Бритьё от 1 000 ₽" [ref=e94] [cursor=pointer]:
+            - /url: /booking
+            - img "Бритьё" [ref=e96]
+            - generic [ref=e98]:
+              - paragraph [ref=e99]: Бритьё
+              - paragraph [ref=e100]: от 1 000 ₽
+          - link "Стрижка + борода Стрижка + борода от 2 000 ₽" [ref=e101] [cursor=pointer]:
+            - /url: /booking
+            - img "Стрижка + борода" [ref=e103]
+            - generic [ref=e105]:
+              - paragraph [ref=e106]: Стрижка + борода
+              - paragraph [ref=e107]: от 2 000 ₽
+      - contentinfo [ref=e108]:
+        - paragraph [ref=e109]: STATE51 — Барбершоп.
+        - paragraph [ref=e110]: ИП Мухамедшина Флора Джавдатовна · ИНН 165908482856
+        - link "Политика конфиденциальности" [ref=e111] [cursor=pointer]:
+          - /url: /privacy
+    - navigation [ref=e112]:
+      - list [ref=e113]:
+        - listitem [ref=e114]:
+          - link "Главная" [ref=e115] [cursor=pointer]:
+            - /url: /
+            - img [ref=e116]
+            - generic [ref=e119]: Главная
+        - listitem [ref=e120]:
+          - link "Услуги" [ref=e121] [cursor=pointer]:
+            - /url: /services
+            - img [ref=e122]
+            - generic [ref=e128]: Услуги
+        - listitem [ref=e129]:
+          - link "Запись" [ref=e130] [cursor=pointer]:
+            - /url: /booking
+            - img [ref=e131]
+            - generic [ref=e133]: Запись
+        - listitem [ref=e134]:
+          - link "Друзья" [ref=e135] [cursor=pointer]:
+            - /url: /friends
+            - img [ref=e136]
+            - generic [ref=e140]: Друзья
+        - listitem [ref=e141]:
+          - link "Контакты" [ref=e142] [cursor=pointer]:
+            - /url: /contacts
+            - img [ref=e143]
+            - generic [ref=e146]: Контакты
+  - alert [ref=e147]

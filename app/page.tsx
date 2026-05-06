@@ -1,23 +1,17 @@
-import { About } from '@/components/shared/About'
-import { Barbers } from '@/components/shared/barbers'
-import { Footer } from '@/components/shared/footer'
-import { Logo } from '@/components/ui/logo'
-import { Telegram } from '@/components/shared/telegram'
-import { InviteFriendBanner } from '@/components/shared/invite_friend_banner'
-
-// import Image from 'next/image'
+import { HomeFooter } from '@/modules/home/ui/home-footer'
+import { HomeHero } from '@/modules/home/ui/home-hero'
+import { HomeInvite } from '@/modules/home/ui/home-invite'
+import { HomeOwner } from '@/modules/home/ui/home-owner'
+import { HomeServicesPreview } from '@/modules/home/ui/home-services-preview'
 
 export default function Home() {
 	return (
-		<div className='relative  text-foreground flex flex-col gap-4'>
-			<div className='flex flex-col gap-4 p-4'>
-				<Logo />
-				<About />
-				<Barbers />
-				<InviteFriendBanner />
-				<Telegram />
-				<Footer />
-			</div>
+		<div className='brand51-main pb-24'>
+			<HomeHero />
+			<HomeOwner />
+			<HomeInvite />
+			<HomeServicesPreview />
+			<HomeFooter />
 		</div>
 	)
 }

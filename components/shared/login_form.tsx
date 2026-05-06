@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { Button } from '../ui/button'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
-import Image from 'next/image'
+import { Checkbox } from '@/components/ui/checkbox'
+import { LEGAL_DOC_VERSION } from '@/modules/legal/content'
+import { ConsentLegalCopy } from '@/modules/legal/ui/consent-legal-copy'
 
 interface Props {
 	className?: string
@@ -14,9 +16,18 @@ export const LoginForm: React.FC<Props> = ({ className }) => {
 	const [login, setLogin] = useState('')
 	const [password, setPassword] = useState('')
 	const [twofa, setTwofa] = useState('')
+	const [termsAccepted, setTermsAccepted] = useState(false)
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
 		setMessage(null)
+
+		if (!termsAccepted) {
+			setMessage(
+				'Для входа необходимо подтвердить согласие на обработку персональных данных.',
+			)
+			return
+		}
+
 		try {
 			const res = await fetch('/api/auth/login', {
 				method: 'POST',
@@ -25,6 +36,11 @@ export const LoginForm: React.FC<Props> = ({ className }) => {
 					login,
 					password,
 					twofa: require2fa ? { code: twofa } : undefined,
+					consent: {
+						accepted: termsAccepted,
+						version: LEGAL_DOC_VERSION,
+						source: '/profile',
+					},
 				}),
 			})
 
@@ -69,19 +85,17 @@ export const LoginForm: React.FC<Props> = ({ className }) => {
 
 	return (
 		<div
-			className={cn('p-6 border rounded-xl shadow w-full bg-card ', className)}
+			className={cn(
+				'brand51-panel w-full border-[#2e2822] bg-[#0f0e0d]/92 p-5',
+				className,
+			)}
 		>
-			<div className='flex flex-row gap-2 items-center justify-center mb-4'>
-				<h1 className='text-2xl font-bold mb-4'>Вход через</h1>
-				<Image
-					src='/yclients.svg'
-					alt='yclients'
-					width={110}
-					height={30}
-					priority
-					className='drop-shadow-2xl -translate-y-1'
-				/>
+			<div className='mb-5 flex items-center justify-center gap-2'>
+				<h2 className='font-accent text-4xl uppercase leading-none text-[#f0e2c7]'>
+					Вход через YCLIENTS
+				</h2>
 			</div>
+
 			<form onSubmit={handleSubmit} className='flex flex-col gap-4'>
 				<input
 					type='tel'
@@ -97,7 +111,7 @@ export const LoginForm: React.FC<Props> = ({ className }) => {
 						digits = digits.slice(0, 11)
 						setLogin(digits)
 					}}
-					className='border p-2 rounded'
+					className='h-11 rounded-md border border-white/15 bg-black/25 px-3 text-base text-[#f4ead6] placeholder:text-[#cfc4b0]/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b13a31]'
 					required
 					inputMode='tel'
 				/>
@@ -106,7 +120,7 @@ export const LoginForm: React.FC<Props> = ({ className }) => {
 					placeholder='Пароль'
 					value={password}
 					onChange={e => setPassword(e.target.value)}
-					className='border p-2 rounded'
+					className='h-11 rounded-md border border-white/15 bg-black/25 px-3 text-base text-[#f4ead6] placeholder:text-[#cfc4b0]/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b13a31]'
 					required
 				/>
 
@@ -116,25 +130,43 @@ export const LoginForm: React.FC<Props> = ({ className }) => {
 						placeholder='Код 2FA'
 						value={twofa}
 						onChange={e => setTwofa(e.target.value)}
-						className='border p-2 rounded'
+						className='h-11 rounded-md border border-white/15 bg-black/25 px-3 text-base text-[#f4ead6] placeholder:text-[#cfc4b0]/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b13a31]'
 						required
 					/>
 				)}
 
-				<Button type='submit' className='cursor-pointer'>
+				<div className='flex items-start gap-3'>
+					<Checkbox
+						id='login-consent'
+						checked={termsAccepted}
+						onCheckedChange={value => setTermsAccepted(Boolean(value))}
+						required
+					/>
+					<ConsentLegalCopy className='-translate-y-1 text-[#d8ccb7]/90' />
+				</div>
+
+				<Button
+					type='submit'
+					disabled={!termsAccepted}
+					className='h-11 cursor-pointer rounded-md border border-[#c35042] bg-[#8f2c23] font-accent text-xl uppercase text-[#f4ead6] hover:bg-[#a73429]'
+				>
 					{require2fa ? 'Подтвердить код' : 'Войти'}
 				</Button>
 			</form>
-			<div className='flex flex-row gap-2 items-center justify-center mt-4'>
-				<p className='text-center'>Нет аккаунта yclients?</p>
+
+			<div className='mt-4 flex items-center justify-center gap-2 text-sm text-[#d8ccb7]/88'>
+				<p className='text-center'>Нет аккаунта YClients?</p>
 				<Link
 					href='https://www.yclients.com/onboarding/first'
-					className='underline cursor-pointer'
+					className='cursor-pointer underline decoration-[#7e5d42] underline-offset-2 hover:text-[#f3e8d3]'
 				>
 					Зарегистрироваться
 				</Link>
 			</div>
-			{message && <p className='mt-4 text-sm text-center'>{message}</p>}
+
+			{message && (
+				<p className='mt-4 text-center text-sm text-[#cfb689]'>{message}</p>
+			)}
 		</div>
 	)
 }

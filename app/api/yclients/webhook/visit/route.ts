@@ -50,7 +50,11 @@ export async function POST(req: Request) {
 	if (!visitsRes.ok)
 		return NextResponse.json({ error: visits.message }, { status: 400 })
 
-	const paidVisits = visits.data.filter((v: any) => v.payment_status === 'paid')
+	const paidVisits = Array.isArray(visits.data)
+		? visits.data.filter(
+				(v: { payment_status?: string }) => v.payment_status === 'paid',
+			)
+		: []
 
 	if (paidVisits.length !== 1) return NextResponse.json({ skip: true })
 

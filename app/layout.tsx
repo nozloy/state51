@@ -2,24 +2,25 @@ import type { Metadata } from 'next'
 import { Roboto, Oswald } from 'next/font/google'
 import './globals.css'
 import { Menu } from '@/components/shared/menu'
+import { CookieConsentManager } from '@/modules/legal/ui/cookie-consent-manager'
 
 const roboto = Roboto({
 	subsets: ['latin', 'cyrillic'],
 	weight: ['400', '700'],
-	variable: '--font-roboto-mono',
+	variable: '--font-roboto',
 })
 
 const oswald = Oswald({
 	subsets: ['latin', 'cyrillic'],
 	weight: ['400', '700'],
-	variable: '--font-Oswald',
+	variable: '--font-oswald',
 })
 
 export const metadata: Metadata = {
 	title:
-		'Барбершоп Штат 51 — восстановление мужской культуры | Новое Шигалеево, Царево Village',
+		'Штат 51 — барбершоп в Царево',
 	description:
-		'Барбершоп Штат 51 — не просто стрижки, а возвращение уважения к себе и культуре. Настоящие кресла начала прошлого века, честная атмосфера, личный подход. Запишись на стрижку — стань собой.',
+		'Барбершоп Штат 51: мужские стрижки, бритьё и комплексный уход. Онлайн-запись, программа «Пригласи друга», контакты и актуальные услуги.',
 	keywords: [
 		'барбершоп',
 		'Штат 51',
@@ -44,12 +45,12 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='en'>
+		<html lang='ru' className='dark'>
 			<head>
 				<link rel='icon' href='/3angle.png' />
 			</head>
 			<body
-				className={`${roboto.variable} ${oswald.variable} antialiased font-sans max-w-md min-h-dvh mx-auto bg-background`}
+				className={`${roboto.variable} ${oswald.variable} bg-[#060505] font-sans antialiased`}
 			>
 				<script
 					type='application/ld+json'
@@ -81,8 +82,13 @@ export default function RootLayout({
 						}),
 					}}
 				/>
-				{children}
-				<Menu />
+				<div className='brand51-shell'>
+					<div className='brand51-canvas'>
+						{children}
+						<Menu />
+						<CookieConsentManager />
+					</div>
+				</div>
 			</body>
 		</html>
 	)

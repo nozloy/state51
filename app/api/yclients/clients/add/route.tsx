@@ -1,21 +1,51 @@
 import { NextRequest, NextResponse } from 'next/server'
+import {
+	logConsentAudit,
+	validateConsentPayload,
+} from '@/modules/legal/server/consent'
 
 const YC_PARTNER_TOKEN = process.env.YC_PARTNER_TOKEN!
 const YC_COMPANY_ID = process.env.YC_COMPANY_ID!
 
+type ClientPayload = {
+	name?: string
+	phone?: string
+	custom_fields?: {
+		ref?: string
+		ref_bonus_given?: boolean
+		[key: string]: unknown
+	}
+	[key: string]: unknown
+}
+
 export async function POST(req: NextRequest) {
 	try {
 		const body = await req.json()
+		const consentValidation = validateConsentPayload(body.consent)
 
-		if (!body.name || !body.phone) {
+		if (!consentValidation.ok) {
+			return NextResponse.json({ error: consentValidation.error }, { status: 400 })
+		}
+
+		logConsentAudit('register_bonus_form', consentValidation.consent)
+
+		const clientPayload: ClientPayload = { ...body }
+		delete clientPayload.consent
+
+		if (
+			typeof clientPayload.name !== 'string' ||
+			clientPayload.name.trim().length === 0 ||
+			typeof clientPayload.phone !== 'string' ||
+			clientPayload.phone.trim().length === 0
+		) {
 			return NextResponse.json(
 				{ error: 'Имя и телефон обязательны' },
 				{ status: 400 },
 			)
 		}
 
-		if (body.custom_fields?.ref) {
-			body.custom_fields.ref_bonus_given = false
+		if (clientPayload.custom_fields?.ref) {
+			clientPayload.custom_fields.ref_bonus_given = false
 		}
 
 		const res = await fetch(
@@ -28,7 +58,7 @@ export async function POST(req: NextRequest) {
 					Authorization: `Bearer ${YC_PARTNER_TOKEN}, User ${process.env.YC_USER_TOKEN}`,
 				},
 
-				body: JSON.stringify(body),
+				body: JSON.stringify(clientPayload),
 			},
 		)
 

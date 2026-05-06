@@ -2,8 +2,9 @@
 import React, { useEffect } from 'react'
 import { Suspense, useState } from 'react'
 import { Checkbox } from '@/components/ui/checkbox'
-import Link from 'next/link'
 import { UserCard } from './user_card'
+import { LEGAL_DOC_VERSION } from '@/modules/legal/content'
+import { ConsentLegalCopy } from '@/modules/legal/ui/consent-legal-copy'
 
 export const ProfilePage: React.FC = () => {
 	const [name, setName] = useState('')
@@ -12,7 +13,7 @@ export const ProfilePage: React.FC = () => {
 	const [dataloading, setDataloading] = useState(false)
 	const [status, setStatus] = useState('Начисляем бонусы...')
 	const [message, setMessage] = useState<string | null>(null)
-	const [termsAccepted, setTermsAccepted] = useState(true)
+	const [termsAccepted, setTermsAccepted] = useState(false)
 	const [referral, setReferral] = useState<string>('')
 	const [user, setUser] = useState<User | null>(null)
 
@@ -35,7 +36,9 @@ export const ProfilePage: React.FC = () => {
 		setMessage(null)
 
 		if (!termsAccepted) {
-			setMessage('Для получения бонусов требуется принять условияй соглашения.')
+			setMessage(
+				'Для получения бонусов необходимо подтвердить согласие на обработку персональных данных.',
+			)
 			setDataloading(false)
 			return
 		}
@@ -53,6 +56,11 @@ export const ProfilePage: React.FC = () => {
 					name,
 					phone,
 					custom_fields: customFields,
+					consent: {
+						accepted: termsAccepted,
+						version: LEGAL_DOC_VERSION,
+						source: '/register',
+					},
 				}),
 			})
 			const data = await res.json()
@@ -126,16 +134,15 @@ export const ProfilePage: React.FC = () => {
 					<div className='max-w-md p-6 border rounded-xl shadow-md bg-card'>
 						<h1 className='text-2xl font-bold mb-4'>Получить бонус</h1>
 
-						<p className='mb-4 text-sm text-gray-600'>
+						<div className='mb-4 text-sm text-gray-600'>
 							{referral && (
-								<div className='flex flex-row items-center justify-start'>
-									<p>По приглашению от: </p>
+								<p className='flex flex-row items-center justify-start gap-1'>
+									<span>По приглашению от:</span>
 									<b>{referral}</b>
-									<br />
-								</div>
+								</p>
 							)}
-							Зачислим Вам скидку 600₽ на первый визит.
-						</p>
+							<p>Зачислим Вам скидку 600₽ на первый визит.</p>
+						</div>
 
 						<form onSubmit={handleSubmit} className='flex flex-col gap-4'>
 							<input
@@ -173,24 +180,11 @@ export const ProfilePage: React.FC = () => {
 									onCheckedChange={v => setTermsAccepted(!!v)}
 									required
 								/>
-								<div className='grid gap-2'>
-									{/* <Label htmlFor='terms-2'>Соглашение</Label> */}
-									<p className='text-foreground text-sm -translate-y-1'>
-										Я предоставляю свое согласие на обработку персональных
-										данных, а также подтверждаю ознакомление и согласие с
-										<Link
-											href='/privacy'
-											className='underline ml-1'
-											target='_blank'
-										>
-											Политикой конфиденциальности.
-										</Link>
-									</p>
-								</div>
+								<ConsentLegalCopy className='-translate-y-1' />
 							</div>
 							<button
 								type='submit'
-								disabled={dataloading}
+								disabled={dataloading || !termsAccepted}
 								className='bg-black text-white py-2 rounded hover:bg-gray-800 disabled:opacity-50'
 							>
 								{dataloading ? status : 'Получить бонусы'}

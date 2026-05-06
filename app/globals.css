@@ -46,7 +46,7 @@
 }
 
 :root {
-	--radius: 0.625rem;
+	--radius: 0.5rem;
 	--background: oklch(1 0 0);
 	--foreground: oklch(0.13 0.028 261.692);
 	--card: oklch(1 0 0);
@@ -119,6 +119,39 @@
 		@apply border-border outline-ring/50;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply min-h-dvh bg-background text-foreground;
+		background-image: radial-gradient(
+			120% 70% at 50% 0%,
+			rgba(150, 51, 43, 0.22) 0%,
+			rgba(11, 9, 8, 0) 48%
+		);
+	}
+}
+
+@layer components {
+	.brand51-shell {
+		@apply mx-auto min-h-dvh w-full px-0 sm:px-4;
+	}
+
+	.brand51-canvas {
+		@apply relative mx-auto min-h-dvh w-full max-w-[430px] border-x border-white/8 bg-[#0b0a09] text-[#f4ead6] shadow-[0_0_40px_rgba(0,0,0,0.5)];
+		background-image: linear-gradient(
+				180deg,
+				rgba(255, 255, 255, 0.02) 0%,
+				rgba(0, 0, 0, 0.25) 100%
+			),
+			url('/brand51/generated/texture-vertical.webp');
+		background-size:
+			100% 100%,
+			cover;
+		background-position: center;
+	}
+
+	.brand51-main {
+		@apply flex flex-col gap-2 px-2 pt-2;
+	}
+
+	.brand51-panel {
+		@apply rounded-md border border-white/10 bg-[#0f0e0d]/88 shadow-[0_10px_24px_rgba(0,0,0,0.35)];
 	}
 }

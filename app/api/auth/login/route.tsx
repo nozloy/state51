@@ -1,10 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
+import {
+	logConsentAudit,
+	validateConsentPayload,
+} from '@/modules/legal/server/consent'
 
 const YC_PARTNER_TOKEN = process.env.YC_PARTNER_TOKEN!
 
 export async function POST(req: NextRequest) {
 	try {
 		const body = await req.json()
+		const consentValidation = validateConsentPayload(body.consent)
+
+		if (!consentValidation.ok) {
+			return NextResponse.json(
+				{ success: false, error: consentValidation.error },
+				{ status: 400 },
+			)
+		}
+
+		logConsentAudit('profile_login_form', consentValidation.consent)
+
 		const { login, password, twofa } = body
 
 		if (!login || !password) {
