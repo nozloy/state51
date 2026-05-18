@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import { BrandTopBar } from '@/modules/home/ui/brand-top-bar'
 import { LegalDocLinks } from '@/modules/legal/ui/legal-doc-links'
 
 interface LegalPageShellProps {
@@ -14,20 +13,16 @@ export function LegalPageShell({
 	children,
 }: LegalPageShellProps) {
 	return (
-		<div className='brand51-main pb-24'>
-			<BrandTopBar />
-
-			<section className='brand51-panel px-4 py-5'>
-				<h1 className='font-accent text-[38px] uppercase leading-[0.95] text-[#ead8b7] min-[390px]:text-[42px]'>
-					{title}
-				</h1>
-				<p className='pt-2 text-sm leading-relaxed text-[#e8dcc7]/84'>
+		<div className='relative text-foreground flex flex-col gap-4 min-h-dvh max-w-md mx-auto mt-2 p-2 pb-24'>
+			<section className='rounded-xl border border-border bg-card px-4 py-5 shadow-md'>
+				<h1 className='text-2xl font-bold'>{title}</h1>
+				<p className='pt-2 text-sm leading-relaxed text-muted-foreground'>
 					{description}
 				</p>
-				<LegalDocLinks className='pt-3' linkClassName='text-sm text-[#e7d7b8]' />
+				<LegalDocLinks className='pt-3' linkClassName='text-sm text-foreground' />
 			</section>
 
-			<section className='brand51-panel px-4 py-4 text-sm leading-relaxed text-[#e8dcc7]/86'>
+			<section className='rounded-xl border border-border bg-card px-4 py-4 text-sm leading-relaxed text-foreground shadow-md'>
 				{children}
 			</section>
 		</div>

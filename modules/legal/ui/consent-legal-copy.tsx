@@ -7,12 +7,12 @@ interface ConsentLegalCopyProps {
 
 export function ConsentLegalCopy({ className }: ConsentLegalCopyProps) {
 	return (
-		<div className={cn('text-sm text-[#e8dcc7]/86', className)}>
+		<div className={cn('text-sm text-foreground', className)}>
 			<p>
 				Я даю согласие на обработку персональных данных и подтверждаю
 				ознакомление с документами:
 			</p>
-			<LegalDocLinks className='pt-1.5' linkClassName='text-[#e7d7b8]' />
+			<LegalDocLinks className='pt-1.5' linkClassName='text-foreground' />
 		</div>
 	)
 }

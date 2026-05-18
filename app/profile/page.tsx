@@ -6,7 +6,6 @@ import { UserCard } from '@/components/shared/user_card'
 import { LoginForm } from '@/components/shared/login_form'
 import { InviteFriendBlock } from '@/components/shared/invite_friend_block'
 import { UserStats } from '@/components/shared/user_stats'
-import { BrandTopBar } from '@/modules/home/ui/brand-top-bar'
 
 export default function LoginPage() {
 	const [user, setUser] = useState<User | null>(null)
@@ -38,33 +37,16 @@ export default function LoginPage() {
 	}, [])
 
 	return (
-		<div className='brand51-main pb-24'>
-			<BrandTopBar />
-			<section className='brand51-panel px-4 py-4'>
-				<h1 className='font-accent text-[44px] uppercase leading-none text-[#ead8b7]'>
-					Профиль
-				</h1>
-				<p className='pt-2 text-sm text-[#e8dcc7]/84'>
-					Войдите в аккаунт YClients, чтобы смотреть бонусы и делиться ссылкой
-					приглашения.
-				</p>
-			</section>
-
+		<div className='flex flex-col gap-4 items-center justify-start max-w-md mx-auto mt-2 p-2 min-h-svh'>
 			{loading && (
-				<div className='brand51-panel flex min-h-[240px] items-center justify-center text-[#cfb689]'>
-					<LoaderCircle className='size-8 animate-spin' />
+				<div className='flex items-center justify-center w-full h-full animate-spin'>
+					<LoaderCircle />
 				</div>
 			)}
-
 			{!user && !loading && <LoginForm />}
-
-			{user && !loading && (
-				<>
-					<UserCard user={user} />
-					{card && <UserStats card={card} />}
-					<InviteFriendBlock user={user} />
-				</>
-			)}
+			{user && !loading && <UserCard user={user} />}
+			{card && !loading && <UserStats card={card} />}
+			{user && !loading && <InviteFriendBlock user={user} />}
 		</div>
 	)
 }

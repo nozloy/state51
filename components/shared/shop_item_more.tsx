@@ -23,43 +23,32 @@ interface Props {
 
 export const ShopItemMore: React.FC<Props> = ({ className, item }) => {
 	return (
-		<div className='h-full'>
+		<div>
 			<Sheet modal={false}>
 				<SheetTrigger asChild>
 					<Item
 						variant='muted'
 						className={cn(
-							'h-full min-h-[258px] w-full flex-col items-center justify-start gap-3 rounded-md border border-white/10 bg-black/28 p-3',
+							'w-40 h-64 flex items-center justify-center p-4',
 							className,
 						)}
 					>
 						<Image
-							width={136}
-							height={136}
+							width={150}
+							height={150}
 							src={'/shop_items/' + item.image}
 							alt={item.name}
-							className='h-[136px] w-[136px] object-cover rounded-lg'
+							className='max-h-full max-w-full object-contain rounded-lg'
 						/>
-						<p className='line-clamp-3 text-center text-sm leading-tight text-[#e8dcc7]'>
-							{item.name}
-						</p>
+						<p className='text-sm text-center line-clamp-2'>{item.name}</p>
 					</Item>
 				</SheetTrigger>
-				<SheetContent className='w-full border-l border-white/10 bg-[#0f0e0d] text-[#f4ead6]'>
+				<SheetContent className='w-full'>
 					<SheetHeader>
-						<SheetTitle className='font-accent text-4xl uppercase leading-none text-[#f0e2c7]'>
-							{item.name}
-						</SheetTitle>
+						<SheetTitle className='text-2xl'>{item.name}</SheetTitle>
 						<SheetDescription className='flex items-center gap-2'>
-							<Badge
-								variant={'outline'}
-								className='border-[#655445] bg-black/20 text-[#cfb689]'
-							>
-								{item.volume} мл
-							</Badge>
-							<Badge className='border border-[#c35042] bg-[#8f2c23] text-[#f4ead6]'>
-								{item.price} ₽
-							</Badge>
+							<Badge variant={'destructive'}>{item.volume} мл</Badge>
+							<Badge>{item.price} ₽</Badge>
 						</SheetDescription>
 					</SheetHeader>
 					<div className='grid flex-1 auto-rows-min gap-6 px-4 overflow-y-auto py-2'>
@@ -72,20 +61,18 @@ export const ShopItemMore: React.FC<Props> = ({ className, item }) => {
 								className='max-h-full max-w-full object-contain rounded-lg'
 							/>
 						</div>
-						<div className='grid gap-3 text-sm leading-relaxed text-[#d7ccb8]/86'>
-							<p>{item.description}</p>
+						<div className='grid gap-3'>
+							{item.description}
 							{item.contents && (
-								<p className='font-semibold text-[#f3e8d2]'>Состав:</p>
+								<p className='text-muted-foreground font-semibold'>Состав:</p>
 							)}
 
-							<p className='font-light text-[#c7b99d]/84'>{item.contents}</p>
+							<p className='font-light'>{item.contents}</p>
 						</div>
 					</div>
 					<SheetFooter className='h-12 pt-0 '>
 						<SheetClose asChild>
-							<Button className='border border-[#c35042] bg-[#8f2c23] font-accent text-lg uppercase text-[#f4ead6] hover:bg-[#a73429]'>
-								Закрыть
-							</Button>
+							<Button variant='default'>Закрыть</Button>
 						</SheetClose>
 					</SheetFooter>
 				</SheetContent>
