@@ -1,13 +1,12 @@
+import Image from 'next/image'
 import {
 	Card,
 	CardContent,
 	CardDescription,
-	CardFooter,
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card'
-import { BookingLink } from '@/modules/booking/ui/booking-link'
-import { PosterDialog } from './poster-dialog'
+import { BOOKING_URL } from '@/modules/booking/content'
 import type { OfferCardContent } from '../types'
 
 export function OfferCard({ offer }: { offer: OfferCardContent }) {
@@ -25,15 +24,24 @@ export function OfferCard({ offer }: { offer: OfferCardContent }) {
 				<CardDescription>{offer.description}</CardDescription>
 			</CardHeader>
 			<CardContent className='p-0'>
-				<PosterDialog offer={offer} />
+				<a
+					href={BOOKING_URL + offer.id}
+					target='_blank'
+					rel='noopener noreferrer'
+					aria-label={`Записаться: ${offer.title}`}
+					className='block w-full cursor-pointer focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-ring'
+				>
+					<Image
+						src={offer.poster.src}
+						alt={offer.poster.alt}
+						width={offer.poster.width}
+						height={offer.poster.height}
+						sizes='(min-width: 1152px) 357px, (min-width: 1024px) 31vw, (min-width: 768px) 46vw, calc(100vw - 32px)'
+						className='h-auto w-full'
+						loading='lazy'
+					/>
+				</a>
 			</CardContent>
-			<CardFooter className='mt-auto p-3'>
-				<BookingLink
-					id={offer.id}
-					accessibleLabel={`Записаться: ${offer.title}`}
-					className='w-full'
-				/>
-			</CardFooter>
 		</Card>
 	)
 }
