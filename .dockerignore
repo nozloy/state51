@@ -7,6 +7,8 @@ out
 coverage
 dist
 build
+*.tsbuildinfo
+next-env.d.ts
 
 # vcs and local tooling
 .git
@@ -14,6 +16,11 @@ build
 .DS_Store
 .vscode
 .idea
+.github
+.playwright-mcp
+docs
+README.md
+rkn_skill.md
 
 # local env and secrets
 .env
