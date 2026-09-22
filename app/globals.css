@@ -6,10 +6,10 @@
 @theme inline {
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
-	--font-roboto: var(--font-roboto);
-	--font-oswald: var(--font-oswald);
-	--font-sans: var(--font-roboto); /* основной sans */
-	--font-accent: var(--font-oswald); /* акцентный sans */
+	--font-roboto: var(--font-body);
+	--font-oswald: var(--font-display);
+	--font-sans: var(--font-body);
+	--font-accent: var(--font-display);
 	--color-sidebar-ring: var(--sidebar-ring);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,25 +46,26 @@
 }
 
 :root {
+	color-scheme: light;
 	--radius: 0.625rem;
-	--background: oklch(1 0 0);
-	--foreground: oklch(0.13 0.028 261.692);
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.13 0.028 261.692);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.13 0.028 261.692);
-	--primary: oklch(0.21 0.034 264.665);
-	--primary-foreground: oklch(0.985 0.002 247.839);
-	--secondary: oklch(0.967 0.003 264.542);
-	--secondary-foreground: oklch(0.21 0.034 264.665);
-	--muted: oklch(0.967 0.003 264.542);
-	--muted-foreground: oklch(0.551 0.027 264.364);
-	--accent: oklch(0.967 0.003 264.542);
-	--accent-foreground: oklch(0.21 0.034 264.665);
-	--destructive: oklch(0.577 0.245 27.325);
-	--border: oklch(0.928 0.006 264.531);
-	--input: oklch(0.928 0.006 264.531);
-	--ring: oklch(0.707 0.022 261.325);
+	--background: #edcea7;
+	--foreground: #092231;
+	--card: #fff9ed;
+	--card-foreground: #092231;
+	--popover: #fff9ed;
+	--popover-foreground: #092231;
+	--primary: #b72720;
+	--primary-foreground: #fff9ed;
+	--secondary: #eadcc2;
+	--secondary-foreground: #092231;
+	--muted: #eadcc2;
+	--muted-foreground: #675947;
+	--accent: #e8d6b4;
+	--accent-foreground: #092231;
+	--destructive: #b72720;
+	--border: #d1bf9e;
+	--input: #c8b48e;
+	--ring: #b72720;
 	--chart-1: oklch(0.646 0.222 41.116);
 	--chart-2: oklch(0.6 0.118 184.704);
 	--chart-3: oklch(0.398 0.07 227.392);
@@ -120,5 +121,30 @@
 	}
 	body {
 		@apply bg-background text-foreground;
+		background-image: url('/brand51/client/warm-paper-texture.webp');
+		background-size: 768px 768px;
+		background-repeat: repeat;
+	}
+	button, summary, a {
+		-webkit-tap-highlight-color: transparent;
+	}
+}
+
+@layer components {
+	.poster-trigger {
+		display: block;
+		width: 100%;
+		cursor: zoom-in;
+		text-align: left;
+	}
+	.poster-trigger:focus-visible {
+		outline: 3px solid var(--ring);
+		outline-offset: -3px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	[data-slot='dialog-content'], [data-slot='dialog-overlay'] {
+		animation: none;
 	}
 }

@@ -10,22 +10,22 @@ export const Logo: React.FC<Props> = ({ className }) => {
 	return (
 		<div
 			className={cn(
-				' flex items-center justify-center pt-6  overflow-hidden',
+				'flex items-center justify-center overflow-hidden',
 				className,
 			)}
 		>
 			<Image
 				src='/logo.svg'
-				alt='logo'
+				alt='Логотип барбершопа «Штат 51»'
 				width={300}
 				height={300}
-				priority
+				preload
 				style={{
 					objectFit: 'contain',
 					transform: 'scale(2)',
 					transformOrigin: 'center',
 				}}
-				className='drop-shadow-md  '
+				className='size-full'
 			/>
 		</div>
 	)

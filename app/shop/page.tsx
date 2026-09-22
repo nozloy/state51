@@ -5,7 +5,7 @@ import { CircleAlert } from 'lucide-react'
 
 export default function Shop() {
 	return (
-		<div className='relative  text-foreground flex flex-col mt-2 p-2 gap-4 min-h-dvh'>
+		<div className='relative mx-auto w-full max-w-md text-foreground flex flex-col mt-2 p-2 gap-4 min-h-dvh'>
 			<div className='flex flex-col gap-4 p-4'>
 				<h1 className='text-2xl font-bold inline-flex items-end gap-2 font-mono'>
 					<p>Витрина</p>

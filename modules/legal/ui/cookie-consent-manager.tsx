@@ -4,6 +4,7 @@ import Script from 'next/script'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
 import {
 	COOKIE_CONSENT_STORAGE_KEY,
 	COOKIE_CONSENT_VERSION,
@@ -99,17 +100,17 @@ export function CookieConsentManager() {
 					aria-live='polite'
 					aria-label='Настройки cookies'
 					className={cn(
-						'fixed bottom-[calc(4.9rem+env(safe-area-inset-bottom))] left-1/2 z-[60] w-[calc(100%-1rem)] max-w-[414px] -translate-x-1/2 rounded-md border border-[#4e4031] bg-[#0f0e0d]/98 p-3 text-[#f2e6cf] shadow-[0_16px_36px_rgba(0,0,0,0.5)] backdrop-blur-sm',
+						'fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] left-1/2 z-40 w-[calc(100%-1rem)] max-w-[414px] -translate-x-1/2 rounded-xl border border-border bg-card p-4 text-foreground shadow-lg',
 					)}
 				>
-					<p className='text-sm leading-relaxed text-[#e9dcc4]/90'>
+					<p className='text-sm leading-relaxed text-muted-foreground'>
 						Мы используем cookies и Яндекс.Метрику для анализа посещаемости и
 						улучшения сервиса. Подробнее в{' '}
 						<Link
 							href='/cookies'
 							target='_blank'
 							rel='noopener noreferrer'
-							className='underline decoration-[#85674b] underline-offset-2'
+							className='underline underline-offset-2'
 						>
 							политике cookies
 						</Link>
@@ -117,20 +118,21 @@ export function CookieConsentManager() {
 					</p>
 
 					<div className='mt-3 grid grid-cols-1 gap-2 min-[390px]:grid-cols-2'>
-						<button
+						<Button
 							type='button'
+							variant='outline'
 							onClick={() => saveConsent('necessary')}
-							className='inline-flex h-10 items-center justify-center rounded-md border border-[#655646] bg-black/25 px-3 text-sm font-medium text-[#f1e4c9] transition hover:border-[#c3aa80] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b13a31]'
+							className='h-10'
 						>
 							Только необходимые
-						</button>
-						<button
+						</Button>
+						<Button
 							type='button'
 							onClick={() => saveConsent('accepted')}
-							className='inline-flex h-10 items-center justify-center rounded-md border border-[#c35042] bg-[#8f2c23] px-3 text-sm font-medium text-[#f4ead6] transition hover:bg-[#a73429] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b13a31]'
+							className='h-10'
 						>
 							Принять
-						</button>
+						</Button>
 					</div>
 				</section>
 			)}

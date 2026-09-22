@@ -10,10 +10,10 @@ interface Props {
 
 export const Telegram: React.FC<Props> = ({ className }) => {
 	return (
-		<Link href='https://t.me/barbershop_state51' target='_blank'>
+		<Link href='https://t.me/barbershop_state51' target='_blank' rel='noopener noreferrer'>
 			<div
 				className={cn(
-					'relative p-4 flex flex-col items-center justify-center rounded-xl w-full z-10 select-none cursor-pointer   font-oswald overflow-hidden h-[100px] border border-border shadow-lg ',
+					'relative isolate flex h-40 w-full items-center justify-center overflow-hidden rounded-xl border border-border p-4 font-oswald shadow-sm',
 					className,
 				)}
 			>
@@ -23,13 +23,13 @@ export const Telegram: React.FC<Props> = ({ className }) => {
 					alt='telegram'
 					width={1000}
 					height={1000}
-					priority
+					sizes='(min-width: 1152px) 540px, (min-width: 768px) 46vw, calc(100vw - 32px)'
 					draggable={false}
 				/>
 
 				<div className=' absolute top-1 right-1'>
 					<p className='flex flex-row gap-1 items-center p-2 text-sm text-foreground  bg-card/50 rounded-lg backdrop-blur-[10px]'>
-						Наш телеграмм канал <ExternalLink size={16} />
+							Наш Telegram-канал <ExternalLink size={16} />
 					</p>
 				</div>
 			</div>

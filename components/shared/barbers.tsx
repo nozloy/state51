@@ -1,50 +1,16 @@
-'use client'
-import React from 'react'
-import { cn } from '@/lib/utils'
 import Image from 'next/image'
-import { Button } from '../ui/button'
-import { ExternalLink } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { BookingLink } from '@/modules/booking/ui/booking-link'
 
-interface Props {
-	className?: string
-}
-
-export const Barbers: React.FC<Props> = ({ className }) => {
+export function Barbers({ className }: { className?: string }) {
 	return (
-		<div className={cn('min-h-[200px] w-full z-10 pt-6', className)}>
-			<div className='flex flex-row gap-4 p-4 items-center justify-start w-full min-h-[100px] border border-border bg-background/30 backdrop-blur-sm rounded-[30px] shadow-lg'>
-				<Image
-					src='/artem_ava.jpg'
-					alt='logo'
-					width={100}
-					height={100}
-					priority
-					className='drop-shadow-lg rounded-3xl object-top object-cover w-[120px] h-[120px]'
-				/>
-				<div className='flex flex-col gap-1 items-start justify-center rounded-xl bg-slate-100 p-2 w-full '>
-					<p className='text-2xl font-bold text-foreground select-none'>
-						Артем
-					</p>
-					<div className='flex flex-row gap-1 items-start justify-center *:select-none *:text-muted-foreground text-sm'>
-						<p>Барбер</p>
-						<span>•</span>
-						<p>Владелец</p>
-					</div>
-					<Button
-						onClick={() =>
-							open(
-								'https://n796028.yclients.com/company/746811/personal/select-services?o=',
-								'_blank',
-							)
-						}
-						variant='outline'
-						className='rounded-xl mt-2 select-none cursor-pointer text-base w-full'
-					>
-						Записаться
-						<ExternalLink />
-					</Button>
-				</div>
+		<section aria-label='Ваш барбер' className={cn('flex flex-wrap items-center gap-4 rounded-xl border border-border bg-card/80 p-5 sm:gap-6', className)}>
+			<Image src='/artem_ava.jpg' alt='Артем — барбер и владелец «Штата 51»' width={96} height={96} sizes='96px' className='size-24 rounded-lg object-cover object-top' />
+			<div className='flex min-w-0 flex-1 flex-col gap-1'>
+				<h2 className='font-oswald text-3xl'>Артем</h2>
+				<p className='text-sm text-muted-foreground'>Барбер · Владелец</p>
 			</div>
-		</div>
+			<BookingLink className='w-full sm:w-auto' accessibleLabel='Записаться к Артему' />
+		</section>
 	)
 }

@@ -7,13 +7,13 @@ import { CookieConsentManager } from '@/modules/legal/ui/cookie-consent-manager'
 const roboto = Roboto({
 	subsets: ['latin', 'cyrillic'],
 	weight: ['400', '700'],
-	variable: '--font-roboto-mono',
+	variable: '--font-body',
 })
 
 const oswald = Oswald({
 	subsets: ['latin', 'cyrillic'],
 	weight: ['400', '700'],
-	variable: '--font-Oswald',
+	variable: '--font-display',
 })
 
 export const metadata: Metadata = {
@@ -50,7 +50,7 @@ export default function RootLayout({
 				<link rel='icon' href='/3angle.png' />
 			</head>
 			<body
-				className={`${roboto.variable} ${oswald.variable} antialiased font-sans max-w-md min-h-dvh mx-auto bg-background`}
+				className={`${roboto.variable} ${oswald.variable} antialiased font-sans min-h-dvh`}
 			>
 				<script
 					type='application/ld+json'

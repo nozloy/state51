@@ -35,11 +35,11 @@ export default function ClientsPage() {
 		fetchClients()
 	}, [])
 
-	if (loading) return <div>Загрузка...</div>
-	if (error) return <div>Ошибка: {error}</div>
+	if (loading) return <div className='mx-auto w-full max-w-md'>Загрузка...</div>
+	if (error) return <div className='mx-auto w-full max-w-md'>Ошибка: {error}</div>
 
 	return (
-		<div>
+		<div className='mx-auto w-full max-w-md'>
 			<h1>Список клиентов YCLIENTS</h1>
 			<ul>
 				{clients.map(c => (

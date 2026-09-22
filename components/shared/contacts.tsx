@@ -26,9 +26,9 @@ export const Contacts: React.FC<Props> = ({ className }) => {
 				<DrawerTrigger asChild>
 					<Button
 						variant='ghost'
-						className='*:text-[12px] font-bold active:scale-95 hover:cursor-pointer size-14 bg-background/0 hover:bg-background/0 text-foreground flex flex-col gap-1'
+						size='navigation'
 					>
-						<MessageSquare className='size-8' />
+						<MessageSquare data-icon='inline-start' />
 						<p>Контакты</p>
 					</Button>
 				</DrawerTrigger>

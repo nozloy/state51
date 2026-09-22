@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import { cn } from '@/lib/utils'
 import { CircleArrowRight } from 'lucide-react'
@@ -8,37 +7,25 @@ interface Props {
 }
 
 export const About: React.FC<Props> = ({ className }) => {
-	const [showAbout, setShowAbout] = React.useState(false)
-	const hundleShowAbout = () => {
-		setShowAbout(!showAbout)
-	}
 	return (
-		<div
-			onClick={() => hundleShowAbout()}
+		<details
 			className={cn(
-				' flex flex-col items-start justify-center bg-background/50 backdrop-blur-sm rounded-[30px] w-full z-10 border border-border select-none cursor-pointer',
+				'group w-full rounded-xl border border-border bg-card/65',
 				className,
 			)}
 		>
-			<div className='w-full flex flex-row gap-2 items-center justify-between text-lg font-bold p-4'>
+			<summary className='flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-bold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring [&::-webkit-details-marker]:hidden'>
 				<p>Мы восстанавливаем культуру</p>
 
 				<CircleArrowRight
 					size={20}
-					className={cn(
-						'transition-all duration-700 ease-in-out',
-						showAbout ? 'rotate-90 scale-150' : '',
-					)}
+					className='shrink-0 transition-transform group-open:rotate-90 motion-reduce:transition-none'
+					aria-hidden='true'
 				/>
-			</div>
+			</summary>
 
 			<div
-				className={cn(
-					'max-w-md mx-auto px-2 text-base leading-snug text-neutral-800 space-y-4 transition-all duration-700 ease-in-out overflow-hidden',
-					showAbout
-						? 'max-h-[1000px] opacity-100 my-4'
-						: 'max-h-0 opacity-0 mt-0',
-				)}
+				className='flex max-w-2xl flex-col gap-4 px-5 pb-5 text-base leading-relaxed'
 			>
 				<p className='text-lg font-semibold'>
 					Ты не зритель.
@@ -84,12 +71,12 @@ export const About: React.FC<Props> = ({ className }) => {
 					где <span className='italic'>вместо аплодисментов — уважение.</span>
 				</p>
 
-				<p className='pt-4 border-t border-neutral-300 font-semibold'>
+				<p className='pt-4 font-semibold'>
 					Ты не покупаешь услугу.
 					<br />
 					Ты входишь в культуру.
 				</p>
 			</div>
-		</div>
+		</details>
 	)
 }
