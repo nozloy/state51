@@ -5,7 +5,7 @@ import { BOOKING_URL } from '@/modules/booking/content'
 interface BookingLinkProps {
 	className?: string
 	accessibleLabel?: string
-	id: string
+	id?: string
 }
 
 export function BookingLink({
@@ -16,7 +16,7 @@ export function BookingLink({
 	return (
 		<Button asChild size='lg' className={className}>
 			<a
-				href={BOOKING_URL + id}
+				href={`${BOOKING_URL}${id ?? ''}`}
 				target='_blank'
 				rel='noopener noreferrer'
 				aria-label={accessibleLabel}
