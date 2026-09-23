@@ -1,0 +1,152 @@
+.pole {
+	--pole-ink: #162b32;
+	--pole-cream: #fff4d6;
+	/* A 32px gradient period at 45deg repeats vertically every 32 * sqrt(2)px. */
+	--stripe-travel: 45.254834px;
+	position: relative;
+	display: block;
+	width: 50px;
+	height: 116px;
+	flex-shrink: 0;
+	filter: drop-shadow(2px 5px 3px #13212c40) drop-shadow(0 1px 1px #fff7dc8c);
+}
+
+.pole > span { position: absolute; display: block; }
+
+.finial {
+	top: 0;
+	left: 40%;
+	width: 20%;
+	height: 6%;
+	border: 1px solid var(--pole-ink);
+	border-radius: 50% 50% 30% 30%;
+	background: radial-gradient(ellipse at 33% 18%, #fffbea 2%, #b3b4a6 40%, #3c4c50 78%);
+	box-shadow: inset 0 1px 0 #fff9e6;
+}
+
+.cap {
+	left: 17%;
+	width: 66%;
+	border: 1.5px solid var(--pole-ink);
+	background:
+		linear-gradient(90deg, #142b34a8, transparent 28%, #fffbe58c 43%, transparent 65%, #122932b3),
+		linear-gradient(#f7edd1, #929c99 50%, #dedac4 72%, #455354);
+	box-shadow: inset 0 1px 1px #fffde1, inset 0 -2px 2px #12283073;
+}
+
+.topCap {
+	top: 3%;
+	height: 15%;
+	border-radius: 55% 55% 12% 12% / 85% 85% 12% 12%;
+}
+
+.topCap::after {
+	content: '';
+	position: absolute;
+	inset: 3px 7px 4px 5px;
+	border-top: 1px solid #fffbea;
+	border-radius: 50% 50% 0 0;
+	opacity: 0.85;
+}
+
+.glass {
+	top: 19%;
+	bottom: 17%;
+	left: 17%;
+	width: 66%;
+	overflow: hidden;
+	border: 1.5px solid var(--pole-ink);
+	border-radius: 4px;
+	background: var(--pole-cream);
+	box-shadow: 1px 0 0 #e2d7b8, -1px 0 0 #f5e9cb;
+}
+
+.stripes {
+	position: absolute;
+	inset: calc(-1 * var(--stripe-travel));
+	background: repeating-linear-gradient(-45deg,
+		#bb2420 0 8px,
+		#fff3d8 8px 16px,
+		#153b50 16px 24px,
+		#fff3d8 24px 32px);
+	animation: barber-pole-turn 2.8s linear infinite;
+	will-change: transform;
+}
+
+/* The moving print sits behind stationary cylindrical shading and glass reflections. */
+.glass::before,
+.glass::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+.glass::before {
+	background:
+		linear-gradient(90deg, #061923b3 0%, #0619234d 12%, transparent 35%, #fff5dc1a 48%, transparent 61%, #06192361 86%, #061923b8 100%),
+		linear-gradient(#13273161, transparent 13% 82%, #13273170);
+	box-shadow: inset 1px 0 1px #fffbea99, inset -1px 0 1px #000c1599;
+}
+
+.glass::after {
+	background:
+		linear-gradient(90deg, transparent 13%, #fff9e6b3 18%, #fff9e666 23%, transparent 32% 70%, #fff9e652 74%, transparent 81%),
+		linear-gradient(112deg, transparent 15%, #fffaf220 26%, transparent 42%);
+	border-inline: 1px solid #fff9e633;
+}
+
+.collar {
+	left: 6%;
+	width: 88%;
+	height: 8%;
+	border: 1.5px solid var(--pole-ink);
+	border-radius: 3px;
+	background:
+		linear-gradient(90deg, #253c44 0%, #c0c4b7 10%, #fff7dd 24%, #ddd9c3 39%, #fbf1d3 55%, #838e87 80%, #20343e 100%);
+	box-shadow: inset 0 1px 0 #fff9e6, inset 0 -2px 0 #2b414a91, 0 1px 1px #04192240;
+}
+
+.collar::after {
+	content: '';
+	position: absolute;
+	inset: 2px 2px auto;
+	height: 1px;
+	background: #fffbe2a6;
+}
+
+.topCollar { top: 15%; }
+.bottomCollar { bottom: 14%; }
+
+.bottomCap {
+	bottom: 3%;
+	height: 12%;
+	border-radius: 8% 8% 55% 55% / 8% 8% 90% 90%;
+	background:
+		linear-gradient(90deg, #1b313c99, transparent 30%, #fff6df99 44%, transparent 68%, #132c3899),
+		linear-gradient(#87918d, #e5dfc7 34%, #b3b6a8 67%, #4d5e60);
+}
+
+.foot {
+	bottom: 0;
+	left: 35%;
+	width: 30%;
+	height: 4%;
+	border: 1px solid var(--pole-ink);
+	border-radius: 0 0 45% 45%;
+	background: linear-gradient(90deg, #40555d, #eee4c6 40%, #6a7776 80%, #283f47);
+	box-shadow: 0 1px 1px #fff7dc80;
+}
+
+@keyframes barber-pole-turn {
+	from { transform: translateY(0); }
+	to { transform: translateY(var(--stripe-travel)); }
+}
+
+@media (max-width: 359px) {
+	.pole { width: 46px; height: 108px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.stripes { animation: none; will-change: auto; }
+}

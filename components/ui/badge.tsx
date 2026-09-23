@@ -17,6 +17,8 @@ const badgeVariants = cva(
           "border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
+        stamp:
+          "rounded-sm border-2 border-primary bg-transparent font-oswald text-[clamp(0.75rem,4cqw,1rem)] uppercase tracking-[0.02em] text-primary md:text-[clamp(0.5625rem,2.5cqw,0.75rem)]",
       },
     },
     defaultVariants: {

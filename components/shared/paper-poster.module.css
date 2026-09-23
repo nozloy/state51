@@ -1,0 +1,13 @@
+.surface {
+	position: relative;
+	isolation: isolate;
+	container-type: inline-size;
+	padding: clamp(1rem, 3vw, 1.5rem);
+	border: 1px solid var(--border);
+	background-color: var(--card);
+	background-image: url('/brand51/generated/invite-friend-paper.webp');
+	background-size: 640px 640px;
+	background-position: center;
+	background-repeat: repeat;
+	box-shadow: 0 6px 20px color-mix(in srgb, var(--foreground) 10%, transparent);
+}

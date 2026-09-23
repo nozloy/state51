@@ -1,6 +1,5 @@
-import { ArrowDown } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { Logo } from '@/components/ui/logo'
+import { HomeStory } from './home-story'
 
 export function HomeIntro() {
 	return (
@@ -9,18 +8,20 @@ export function HomeIntro() {
 				<p>Царёво Village · Тукая, 14</p>
 				<p className='shrink-0'>Est. 2022</p>
 			</div>
-			<div className='flex items-center justify-between gap-4 py-4 md:gap-12 md:py-8'>
-				<div className='flex min-w-0 flex-col gap-4'>
-					<p className='font-oswald text-xs uppercase tracking-[0.3em] text-primary sm:text-sm'>Barbershop</p>
-					<h1 className='font-oswald text-5xl leading-none font-bold tracking-tight min-[390px]:text-6xl sm:text-8xl'>ШТАТ <span className='text-primary'>51</span></h1>
-					<p className='max-w-md text-sm leading-relaxed text-muted-foreground sm:text-lg'>Мужские стрижки, бритьё и уход.<br />Продолжаем традиции. Создаём ваш стиль.</p>
+			<div className='grid grid-cols-2 items-center gap-x-4 gap-y-6 py-4 md:gap-x-12 md:py-8'>
+				{/* <div className='flex min-w-0 flex-col gap-4'>
+					<p className='font-oswald text-xs uppercase tracking-[0.3em] text-primary sm:text-sm'>
+						Barbershop
+					</p>
+					<h1 className='font-oswald text-[clamp(2.5rem,12vw,6rem)] leading-none font-bold tracking-tight whitespace-nowrap'>
+						ШТАТ <span className='text-primary'>51</span>
+					</h1>
+				</div> */}
+				<Logo className='hidden w-full md:col-start-1 md:row-start-1 md:block' />
+				<div className='col-span-2 md:col-span-1 md:col-start-2 md:row-start-1'>
+					<HomeStory />
 				</div>
-				<Logo className='size-24 shrink-0 min-[390px]:size-28 sm:size-48 lg:size-56' />
 			</div>
-			<nav aria-label='Разделы главной' className='flex flex-wrap gap-3'>
-				<Button asChild size='lg'><a href='#services'>Услуги и цены <ArrowDown data-icon='inline-end' /></a></Button>
-				<Button asChild size='lg' variant='outline'><a href='#promotions'>Акции <ArrowDown data-icon='inline-end' /></a></Button>
-			</nav>
 		</header>
 	)
 }

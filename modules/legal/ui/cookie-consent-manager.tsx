@@ -100,7 +100,7 @@ export function CookieConsentManager() {
 					aria-live='polite'
 					aria-label='Настройки cookies'
 					className={cn(
-						'fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] left-1/2 z-40 w-[calc(100%-1rem)] max-w-[414px] -translate-x-1/2 rounded-xl border border-border bg-card p-4 text-foreground shadow-lg',
+						'fixed bottom-[var(--bottom-menu-clearance)] left-1/2 z-40 w-[calc(100%-1rem)] max-w-[414px] -translate-x-1/2 rounded-xl border border-border bg-card p-4 text-foreground shadow-lg',
 					)}
 				>
 					<p className='text-sm leading-relaxed text-muted-foreground'>

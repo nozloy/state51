@@ -15,6 +15,10 @@ const buttonVariants = cva(
 					'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
 				outline:
 					'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',
+				poster:
+					"border-2 border-foreground/70 bg-card bg-[url('/brand51/client/warm-paper-texture.webp')] [background-size:768px_768px] bg-repeat bg-blend-multiply text-foreground shadow-sm hover:bg-foreground hover:text-card focus-visible:ring-foreground/40 motion-reduce:transition-none",
+				'poster-primary':
+					"border-2 border-primary-foreground/80 bg-primary bg-[url('/brand51/generated/invite-friend-paper.webp')] [background-size:640px_640px] bg-repeat bg-blend-multiply text-primary-foreground shadow-sm hover:bg-primary/85 motion-reduce:transition-none",
 				secondary:
 					'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
 				ghost:
@@ -25,6 +29,7 @@ const buttonVariants = cva(
 				default: 'h-9 px-4 py-2 has-[>svg]:px-3',
 				sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
 				lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
+				poster: "h-12 gap-3 rounded-lg px-5 text-sm [&_svg:not([class*='size-'])]:size-5",
 				icon: 'size-9',
 				navigation: "size-14 flex-col gap-1 p-0 text-xs font-bold [&_svg:not([class*='size-'])]:size-6",
 			},

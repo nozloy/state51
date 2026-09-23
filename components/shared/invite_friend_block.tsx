@@ -40,7 +40,7 @@ export const InviteFriendBlock: React.FC<Props> = ({ className, user }) => {
 						width={120}
 						height={120}
 						priority
-						className='drop-shadow-2xl rounded-3xl object-top object-cover w-[120px] h-[120px] mt-1'
+						className='drop-shadow-2xl object-top object-cover w-[120px] h-[120px] mt-1'
 					/>
 				</div>
 				<div className='relative w-full'>

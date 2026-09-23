@@ -11,7 +11,7 @@ interface BookingLinkProps {
 export function BookingLink({
 	className,
 	accessibleLabel,
-	id,
+	id = '',
 }: BookingLinkProps) {
 	return (
 		<Button asChild size='lg' className={className}>

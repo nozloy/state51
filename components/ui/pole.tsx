@@ -1,22 +1,22 @@
-import React from 'react'
 import { cn } from '@/lib/utils'
-import Image from 'next/image'
+import styles from './pole.module.css'
 
 interface Props {
 	className?: string
 }
 
-export const Pole: React.FC<Props> = ({ className }) => {
+export function Pole({ className }: Props) {
 	return (
-		<div className={cn('', className)}>
-			<Image
-				src='/pole.png'
-				alt='logo'
-				width={200}
-				height={200}
-				priority
-				className='drop-shadow-2xl'
-			/>
-		</div>
+		<span className={cn(styles.pole, className)} aria-hidden='true' data-barber-pole>
+			<span className={styles.finial} />
+			<span className={cn(styles.cap, styles.topCap)} />
+			<span className={styles.glass}>
+				<span className={styles.stripes} data-pole-stripes />
+			</span>
+			<span className={cn(styles.collar, styles.topCollar)} />
+			<span className={cn(styles.collar, styles.bottomCollar)} />
+			<span className={cn(styles.cap, styles.bottomCap)} />
+			<span className={styles.foot} />
+		</span>
 	)
 }

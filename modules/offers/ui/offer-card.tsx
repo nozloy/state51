@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import {
 	Card,
 	CardContent,
@@ -8,11 +7,12 @@ import {
 } from '@/components/ui/card'
 import { BOOKING_URL } from '@/modules/booking/content'
 import type { OfferCardContent } from '../types'
+import { PosterImage } from './poster-image'
 
 export function OfferCard({ offer }: { offer: OfferCardContent }) {
 	return (
 		<Card
-			className='h-full gap-0 overflow-hidden py-0'
+			className='gap-0 overflow-hidden rounded-none border-0 bg-transparent py-0'
 			data-offer-id={offer.id}
 		>
 			<CardHeader className='sr-only'>
@@ -31,15 +31,7 @@ export function OfferCard({ offer }: { offer: OfferCardContent }) {
 					aria-label={`Записаться: ${offer.title}`}
 					className='block w-full cursor-pointer focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-ring'
 				>
-					<Image
-						src={offer.poster.src}
-						alt={offer.poster.alt}
-						width={offer.poster.width}
-						height={offer.poster.height}
-						sizes='(min-width: 1152px) 357px, (min-width: 1024px) 31vw, (min-width: 768px) 46vw, calc(100vw - 32px)'
-						className='h-auto w-full'
-						loading='lazy'
-					/>
+					<PosterImage poster={offer.poster} />
 				</a>
 			</CardContent>
 		</Card>

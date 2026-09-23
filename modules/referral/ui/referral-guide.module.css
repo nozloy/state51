@@ -1,0 +1,222 @@
+.page {
+	width: 100%;
+	max-width: 64rem;
+	margin-inline: auto;
+	padding: 1rem 1rem 2rem;
+}
+
+.navigation {
+	margin: 0 0 0.75rem -0.5rem;
+}
+
+.poster {
+	padding: clamp(1.25rem, 4vw, 3rem);
+	border-color: color-mix(in srgb, var(--foreground) 30%, var(--card));
+}
+
+.masthead {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding-bottom: 0.875rem;
+	border-bottom: 1px solid color-mix(in srgb, var(--foreground) 35%, transparent);
+	font-family: var(--font-display), sans-serif;
+	font-size: 0.6875rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.masthead p:last-child {
+	flex-shrink: 0;
+	color: var(--primary);
+}
+
+.hero {
+	display: grid;
+	align-items: center;
+	gap: 1rem;
+	padding-block: 1.75rem 1rem;
+}
+
+.introduction {
+	display: flex;
+	min-width: 0;
+	flex-direction: column;
+	gap: 1.125rem;
+}
+
+.eyebrow {
+	font-family: var(--font-display), sans-serif;
+	font-size: 0.6875rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.title {
+	font-family: var(--font-display), sans-serif;
+	font-size: clamp(2rem, 8.7vw, 3.625rem);
+	font-weight: 700;
+	line-height: 1.12;
+	letter-spacing: -0.04em;
+	text-transform: uppercase;
+}
+
+.title span {
+	display: block;
+	margin-top: 0.125rem;
+	color: var(--primary);
+}
+
+.description {
+	font-size: 0.9375rem;
+	line-height: 1.65;
+}
+
+.illustration {
+	justify-self: center;
+	width: 100%;
+	max-width: 13.75rem;
+	height: auto;
+	margin-block: -1rem -0.5rem;
+}
+
+.stepsHeading {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 0.25rem 1rem;
+	padding-block: 0.875rem;
+	border-block: 1px solid color-mix(in srgb, var(--foreground) 35%, transparent);
+	font-family: var(--font-display), sans-serif;
+	text-transform: uppercase;
+}
+
+.stepsHeading h2 {
+	font-size: 1.0625rem;
+	font-weight: 500;
+	letter-spacing: 0.025em;
+}
+
+.stepsHeading span {
+	color: var(--muted-foreground);
+	font-size: 0.6875rem;
+	letter-spacing: 0.1em;
+}
+
+.steps {
+	display: grid;
+	list-style: none;
+}
+
+.step {
+	display: grid;
+	grid-template-columns: 2.5rem minmax(0, 1fr);
+	align-content: start;
+	gap: 0.875rem;
+	padding-block: 1.375rem;
+	border-bottom: 1px dashed color-mix(in srgb, var(--foreground) 25%, transparent);
+}
+
+.number {
+	color: var(--primary);
+	font-family: var(--font-display), sans-serif;
+	font-size: 2.125rem;
+	font-weight: 500;
+	line-height: 1;
+	letter-spacing: -0.04em;
+}
+
+.stepCopy {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.stepCopy h3 {
+	font-family: var(--font-display), sans-serif;
+	font-size: 1.1875rem;
+	font-weight: 500;
+	line-height: 1.25;
+}
+
+.stepCopy p {
+	font-size: 0.9375rem;
+	line-height: 1.6;
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	padding-top: 1.5rem;
+}
+
+.invitation {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.signature {
+	font-family: Georgia, serif;
+	font-size: 1.125rem;
+	font-style: italic;
+	line-height: 1.45;
+}
+
+.action {
+	width: 100%;
+}
+
+.terms {
+	max-width: 48rem;
+	color: var(--muted-foreground);
+	font-size: 0.8125rem;
+	line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+	.page {
+		padding-top: 1.5rem;
+	}
+
+	.hero {
+		grid-template-columns: 1.45fr 1fr;
+		gap: 1.5rem;
+		padding-block: 2rem;
+	}
+
+	.title {
+		font-size: clamp(2.5rem, 5.8vw, 3.625rem);
+	}
+
+	.description {
+		font-size: 1rem;
+	}
+
+	.illustration {
+		max-width: 20rem;
+		margin-block: -1rem;
+	}
+
+	.steps {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		column-gap: 2.5rem;
+	}
+
+	.step {
+		padding-block: 1.75rem;
+	}
+
+	.invitation {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.action {
+		width: auto;
+	}
+}

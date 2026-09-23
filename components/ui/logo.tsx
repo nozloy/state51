@@ -8,24 +8,14 @@ interface Props {
 
 export const Logo: React.FC<Props> = ({ className }) => {
 	return (
-		<div
-			className={cn(
-				'flex items-center justify-center overflow-hidden',
-				className,
-			)}
-		>
+		<div className={cn('shrink-0', className)}>
 			<Image
-				src='/logo.svg'
+				src='/logo.png'
 				alt='Логотип барбершопа «Штат 51»'
-				width={300}
-				height={300}
+				width={1523}
+				height={1033}
 				preload
-				style={{
-					objectFit: 'contain',
-					transform: 'scale(2)',
-					transformOrigin: 'center',
-				}}
-				className='size-full'
+				className='block h-auto w-full'
 			/>
 		</div>
 	)

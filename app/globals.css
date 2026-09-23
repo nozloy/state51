@@ -47,6 +47,8 @@
 
 :root {
 	color-scheme: light;
+	--bottom-menu-height: 80px;
+	--bottom-menu-clearance: calc(var(--bottom-menu-height) + 5rem + env(safe-area-inset-bottom));
 	--radius: 0.625rem;
 	--background: #edcea7;
 	--foreground: #092231;
@@ -116,11 +118,15 @@
 }
 
 @layer base {
+	html {
+		scroll-padding-bottom: var(--bottom-menu-clearance);
+	}
 	* {
 		@apply border-border outline-ring/50;
 	}
 	body {
 		@apply bg-background text-foreground;
+		padding-bottom: var(--bottom-menu-clearance);
 		background-image: url('/brand51/client/warm-paper-texture.webp');
 		background-size: 768px 768px;
 		background-repeat: repeat;

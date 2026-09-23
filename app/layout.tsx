@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 		'мужская культура',
 	],
 	icons: {
-		icon: '/3angle.png',
+		icon: '/logo.png',
 	},
 }
 
@@ -46,9 +46,6 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='ru'>
-			<head>
-				<link rel='icon' href='/3angle.png' />
-			</head>
 			<body
 				className={`${roboto.variable} ${oswald.variable} antialiased font-sans min-h-dvh`}
 			>
@@ -59,7 +56,7 @@ export default function RootLayout({
 							'@context': 'https://schema.org',
 							'@type': 'Barbershop',
 							name: 'Штат 51',
-							image: 'https://barberstate51.ru.ru/logo.svg',
+							image: 'https://barberstate51.ru/logo.png',
 							url: 'https://barberstate51.ru.ru',
 							telephone: '+7 (937) 520-00-51',
 							slogan: 'Мы восстанавливаем культуру',
@@ -77,7 +74,7 @@ export default function RootLayout({
 							},
 							description:
 								'Барбершоп «Штат 51» — лучшие мужские стрижки, оформление бороды и бритье в Царево Village (Новое Шигалеево), Республика Татарстан.Уникальная атмосфера, философия, кресла начала XX века.',
-							logo: 'https://barberstate51.ru/3angle.png',
+							logo: 'https://barberstate51.ru/logo.png',
 							sameAs: ['https://t.me/barbershop_state51'],
 						}),
 					}}

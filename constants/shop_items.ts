@@ -1,6 +1,9 @@
 export interface ShopItem {
 	id: number
 	name: string
+	shortName: string
+	category: 'styling' | 'beard' | 'cleansing'
+	summary: string
 	price: number
 	image: string
 	volume: number
@@ -8,9 +11,12 @@ export interface ShopItem {
 	description: string
 }
 
-export const shop_items = [
+export const shop_items: ShopItem[] = [
 	{
 		id: 1,
+		shortName: 'Паста с кератином',
+		category: 'styling',
+		summary: 'Средняя фиксация · лёгкий блеск',
 		name: 'Паста для фиксации волос с кератином',
 		price: 900,
 		image: 'hair_paste_50ml.jpg',
@@ -21,6 +27,9 @@ export const shop_items = [
 	},
 	{
 		id: 2,
+		shortName: 'Кремовая помада',
+		category: 'styling',
+		summary: 'Лёгкая фиксация · объём и текстура',
 		name: 'Кремовая помада для волос Crème pomade',
 		price: 900,
 		image: 'creme_pomade_50ml.jpg',
@@ -32,6 +41,9 @@ export const shop_items = [
 	},
 	{
 		id: 3,
+		shortName: 'Масло для бороды',
+		category: 'beard',
+		summary: 'Увлажнение · питание · мягкость',
 		name: 'Масло для бороды увлажняющее Beard oil',
 		price: 1000,
 		image: 'beard_oil_50ml.jpg',
@@ -43,6 +55,9 @@ export const shop_items = [
 	},
 	{
 		id: 4,
+		shortName: 'Матовая глина',
+		category: 'styling',
+		summary: 'Фиксация · объём · матовый эффект',
 		name: 'Матовая глина для фиксации волос с протеинами риса Matte clay',
 		price: 1600,
 		image: 'matte_clay_95ml.jpg',
@@ -54,6 +69,9 @@ export const shop_items = [
 	},
 	{
 		id: 5,
+		shortName: 'Бальзам для бороды',
+		category: 'beard',
+		summary: 'Лёгкая фиксация · естественный блеск',
 		name: 'Бальзам для бороды с маслом авокадо и макадамии Beard Balm',
 		price: 1400,
 		image: 'beard_balm_95ml.jpg',
@@ -65,6 +83,9 @@ export const shop_items = [
 	},
 	{
 		id: 6,
+		shortName: 'Кремовая помада',
+		category: 'styling',
+		summary: 'Лёгкая фиксация · объём и текстура',
 		name: 'Кремовая помада для фиксации волос с кератином crème pomade',
 		price: 1600,
 		image: 'creme_pomade_95ml.jpg',
@@ -76,6 +97,9 @@ export const shop_items = [
 	},
 	{
 		id: 7,
+		shortName: 'Спрей с морской солью',
+		category: 'styling',
+		summary: 'Естественный объём · текстура',
 		name: 'Спрей с морской солью Sea salt spray',
 		price: 1200,
 		image: 'sea_salt_spray_200ml.jpg',
@@ -87,6 +111,9 @@ export const shop_items = [
 	},
 	{
 		id: 8,
+		shortName: 'Шампунь с алоэ вера',
+		category: 'cleansing',
+		summary: 'Мягкое очищение · уход за кожей головы',
 		name: 'Шампунь с экстрактом ламинарии и алоэ вера',
 		price: 1200,
 		image: 'shampoo_300ml.jpg',
@@ -97,6 +124,9 @@ export const shop_items = [
 	},
 	{
 		id: 9,
+		shortName: 'Очищающая пена',
+		category: 'cleansing',
+		summary: 'Для волос, лица и тела',
 		name: 'Очищающая пена для волос, лица и тела All in one',
 		price: 1600,
 		image: 'all_in_one_150ml.jpg',
@@ -108,6 +138,9 @@ export const shop_items = [
 	},
 	{
 		id: 10,
+		shortName: 'Пена с морской солью',
+		category: 'styling',
+		summary: 'Лёгкая фиксация · матовый финиш',
 		name: 'Пена для укладки волос с морской солью Sea Foam',
 		price: 1400,
 		image: 'sea_foam_150ml.jpg',

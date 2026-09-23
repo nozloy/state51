@@ -1,8 +1,17 @@
+export interface PosterTopFrame {
+	left: number
+	right: number
+	thickness: number
+	color: string
+	paperColor: string
+}
+
 export interface PosterAsset {
 	src: string
 	width: number
 	height: number
 	alt: string
+	topFrame?: PosterTopFrame
 }
 
 export interface ServiceOffer {

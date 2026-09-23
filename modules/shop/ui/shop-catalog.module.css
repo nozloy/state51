@@ -1,0 +1,175 @@
+.page {
+	width: 100%;
+	max-width: 72rem;
+	margin-inline: auto;
+	padding: 1rem 1rem 2rem;
+}
+
+.hero {
+	padding: clamp(1.25rem, 4vw, 2rem);
+	border-color: color-mix(in srgb, var(--foreground) 28%, var(--card));
+}
+
+.masthead {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid
+		color-mix(in srgb, var(--foreground) 30%, transparent);
+	font-family: var(--font-display), sans-serif;
+	font-size: 0.6875rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.masthead p:last-child {
+	color: var(--primary);
+}
+
+.introduction {
+	display: grid;
+	gap: 1.5rem;
+	padding-top: 1.5rem;
+}
+
+.title {
+	font-family: var(--font-display), sans-serif;
+	font-size: clamp(3.5rem, 14vw, 5rem);
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.035em;
+	text-transform: uppercase;
+}
+
+.signature {
+	margin-top: 0.75rem;
+	color: var(--primary);
+	font-family: Georgia, serif;
+	font-size: clamp(1.125rem, 4.8vw, 1.625rem);
+	font-style: italic;
+	line-height: 1.4;
+}
+
+.introCopy {
+	display: flex;
+	max-width: 28rem;
+	flex-direction: column;
+	gap: 0.625rem;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+}
+
+.introCopy .availability {
+	color: var(--muted-foreground);
+	font-size: 0.8125rem;
+	color: brown;
+}
+
+.catalog {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	margin-top: 2rem;
+}
+.section {
+	scroll-margin-top: 1.5rem;
+}
+
+.sectionHeader {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.875rem;
+	margin-bottom: 1.25rem;
+}
+
+.sectionNumber {
+	flex-shrink: 0;
+	color: var(--primary);
+	font-family: var(--font-display), sans-serif;
+	font-size: 2.5rem;
+	font-weight: 500;
+	line-height: 1;
+}
+
+.sectionHeader h2 {
+	font-family: var(--font-display), sans-serif;
+	font-size: 1.75rem;
+	font-weight: 500;
+	line-height: 1.15;
+	text-transform: uppercase;
+}
+
+.sectionHeader p {
+	margin-top: 0.375rem;
+	color: var(--muted-foreground);
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+.products {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.25rem 0.75rem;
+	list-style: none;
+}
+
+.products > li {
+	min-width: 0;
+}
+
+.footer {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-top: 2.5rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid color-mix(in srgb, var(--foreground) 30%, transparent);
+	font-size: 0.875rem;
+	line-height: 1.6;
+}
+
+.footer > svg {
+	width: 2rem;
+	height: 2rem;
+	flex-shrink: 0;
+	color: var(--primary);
+}
+.footerTitle {
+	margin-bottom: 0.375rem;
+	font-family: Georgia, serif;
+	font-size: 1.125rem;
+	font-style: italic;
+}
+
+@media (min-width: 768px) {
+	.page {
+		padding: 1.5rem 1.5rem 3rem;
+	}
+	.introduction {
+		grid-template-columns: 1.05fr 1fr;
+		align-items: center;
+		gap: 3rem;
+		padding-top: 1.25rem;
+	}
+	.introCopy {
+		font-size: 1rem;
+	}
+	.catalog {
+		gap: 3.5rem;
+	}
+	.sectionHeader {
+		gap: 1.25rem;
+		margin-bottom: 1.5rem;
+	}
+	.sectionHeader h2 {
+		font-size: 2.25rem;
+	}
+	.sectionNumber {
+		font-size: 3.25rem;
+	}
+	.products {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.5rem;
+	}
+}

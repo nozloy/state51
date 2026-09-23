@@ -24,12 +24,6 @@ export function getServiceCards(): OfferCardContent[] {
 	}] : [])
 }
 
-export function getAdditionalServices(): PriceRow[] {
-	return services.filter(service => !service.poster).map(service => ({
-		id: service.id, title: service.title, price: formatRubles(service.priceRub),
-	}))
-}
-
 function getDiscountedPriceList(percent: number): PriceRow[] {
 	return services.map(service => ({
 		id: service.id,

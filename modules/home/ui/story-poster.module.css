@@ -1,0 +1,248 @@
+.poster {
+	--poster-inset: clamp(1.5rem, 3vw, 2rem);
+	--poster-logo-width: clamp(4.25rem, 22vw, 6.25rem);
+	position: relative;
+	margin-bottom: 1.25rem;
+	color: var(--foreground);
+	font-family: var(--font-body), sans-serif;
+	font-size: 1rem;
+	line-height: 1.7;
+}
+
+.sheet {
+	position: relative;
+	border: 1px solid var(--border);
+	background-color: var(--background);
+	background-image:
+		linear-gradient(
+			color-mix(in srgb, var(--card) 60%, transparent),
+			color-mix(in srgb, var(--card) 28%, transparent)
+		),
+		url('/brand51/client/warm-paper-texture.webp');
+	background-size: auto, 480px 480px;
+	box-shadow: 0 9px 18px -10px color-mix(in srgb, var(--foreground) 45%, transparent);
+}
+
+.sheet::before,
+.sheet::after {
+	position: absolute;
+	inset: 8px 8px 0;
+	border: 2px solid color-mix(in srgb, var(--primary) 80%, transparent);
+	border-bottom: 0;
+	content: '';
+	pointer-events: none;
+}
+
+.sheet::after {
+	inset: 13px 13px 0;
+	border-width: 1px;
+	border-color: color-mix(in srgb, var(--foreground) 45%, transparent);
+}
+
+.mobileLogo {
+	position: absolute;
+	top: var(--poster-inset);
+	right: var(--poster-inset);
+	width: var(--poster-logo-width);
+	pointer-events: none;
+}
+
+.trigger {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	gap: 0.875rem;
+	padding: var(--poster-inset) var(--poster-inset) 2rem;
+	border: 0;
+	background: transparent;
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.headline {
+	color: var(--primary);
+	font-family: var(--font-display), sans-serif;
+	font-size: clamp(1.75rem, 4vw, 2.25rem);
+	font-weight: 700;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	text-transform: uppercase;
+}
+
+.intro {
+	display: block;
+}
+
+.contentViewport {
+	height: 0;
+	overflow: hidden;
+	transition: height 520ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	padding: 0 var(--poster-inset) 2.5rem;
+}
+
+.edge {
+	position: absolute;
+	right: -5px;
+	bottom: -19px;
+	left: -5px;
+	height: 48px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.roll {
+	position: absolute;
+	top: 7px;
+	right: 0;
+	left: 0;
+	height: 34px;
+	border-radius: 50% / 5px;
+	background: linear-gradient(
+		to bottom,
+		color-mix(in srgb, var(--border) 80%, var(--foreground)) 0%,
+		var(--secondary) 12%,
+		var(--card) 38%,
+		var(--card) 48%,
+		var(--background) 76%,
+		var(--border) 95%,
+		color-mix(in srgb, var(--border) 65%, var(--foreground)) 100%
+	);
+	box-shadow:
+		0 10px 12px -7px color-mix(in srgb, var(--foreground) 38%, transparent),
+		0 -4px 7px -4px color-mix(in srgb, var(--foreground) 35%, transparent);
+	transition: height 520ms ease, top 520ms ease, box-shadow 520ms ease;
+	pointer-events: none;
+}
+
+.roll::before,
+.roll::after {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 10px;
+	border: 1px solid var(--border);
+	border-radius: 50%;
+	background: radial-gradient(
+		ellipse at 50% 45%,
+		color-mix(in srgb, var(--border) 50%, var(--foreground)) 0 12%,
+		var(--secondary) 16% 35%,
+		var(--border) 38% 44%,
+		var(--card) 48% 66%,
+		var(--border) 70% 76%,
+		var(--secondary) 80%
+	);
+	content: '';
+	transition: opacity 350ms ease;
+}
+
+.roll::before {
+	left: -4px;
+}
+
+.roll::after {
+	right: -4px;
+}
+
+.trigger:focus-visible,
+.edge:focus-visible {
+	outline: 2px solid var(--ring);
+	outline-offset: 5px;
+}
+
+.poster[data-open='true'] .contentViewport {
+	height: var(--story-height);
+}
+
+.poster[data-open='true'] .sheet::before {
+	bottom: 8px;
+	border-bottom: 2px solid color-mix(in srgb, var(--primary) 80%, transparent);
+}
+
+.poster[data-open='true'] .sheet::after {
+	bottom: 13px;
+	border-bottom: 1px solid color-mix(in srgb, var(--foreground) 45%, transparent);
+}
+
+.poster[data-open='true'] .roll {
+	top: 24px;
+	height: 5px;
+	box-shadow: 0 4px 6px -3px color-mix(in srgb, var(--foreground) 20%, transparent);
+}
+
+.poster[data-open='true'] .roll::before,
+.poster[data-open='true'] .roll::after {
+	opacity: 0;
+}
+
+@media (width < 48rem) {
+	.headline {
+		display: flex;
+		min-height: calc(var(--poster-logo-width) * 1033 / 1523);
+		align-items: center;
+		padding-right: calc(var(--poster-logo-width) + 0.75rem);
+		font-size: clamp(1.375rem, 6.5vw, 1.75rem);
+	}
+}
+
+@media (width < 48rem) and (hover: hover) and (pointer: fine) {
+	.poster[data-open='false']:hover .contentViewport {
+		height: 1.75rem;
+	}
+
+	.poster[data-open='false']:hover .roll {
+		top: 12px;
+		height: 25px;
+		box-shadow: 0 8px 10px -7px color-mix(in srgb, var(--foreground) 30%, transparent);
+	}
+}
+
+@media (min-width: 48rem) {
+	.poster {
+		margin-bottom: 0;
+	}
+
+	.poster[data-open] .contentViewport {
+		height: auto;
+		transition: none;
+	}
+
+	.sheet::before {
+		bottom: 8px;
+		border-bottom: 2px solid color-mix(in srgb, var(--primary) 80%, transparent);
+	}
+
+	.sheet::after {
+		bottom: 13px;
+		border-bottom: 1px solid color-mix(in srgb, var(--foreground) 45%, transparent);
+	}
+
+	.trigger {
+		cursor: auto;
+	}
+
+	.mobileLogo,
+	.edge {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.contentViewport,
+	.roll,
+	.roll::before,
+	.roll::after {
+		transition: none;
+	}
+}
