@@ -16,7 +16,7 @@ export function MoreMenu({ active }: { active: boolean }) {
 			<SheetTrigger asChild>
 				<button type='button'
 					className={cn(navigationStyles.item, navigationStyles.more)}
-					data-active={active} aria-label='Ещё: профиль, витрина и контакты'>
+					data-active={active} aria-label='Ещё: профиль и контакты'>
 					<Menu aria-hidden='true' strokeWidth={1.8} />
 					<span>Ещё</span>
 				</button>

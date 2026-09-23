@@ -1,4 +1,4 @@
-import { BadgePercent, House, MessageCircle, Phone, Scissors, Send, ShoppingBag, User } from 'lucide-react'
+import { BadgePercent, House, MessageCircle, Phone, Scissors, Send, User } from 'lucide-react'
 
 export type HomeNavigationId = 'home' | 'services' | 'promotions'
 export type NavigationId = HomeNavigationId | 'more'
@@ -11,7 +11,6 @@ export const homeNavigation = [
 
 export const additionalNavigation = [
 	{ href: '/profile', label: 'Личный кабинет', description: 'Бонусы и приглашения', icon: User },
-	{ href: '/shop', label: 'Витрина', description: 'Средства для волос и бороды', icon: ShoppingBag },
 ] as const
 
 export const contactNavigation = [
