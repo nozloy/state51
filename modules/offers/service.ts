@@ -18,7 +18,6 @@ export function getServiceCards(): OfferCardContent[] {
 	return services.flatMap(service => service.poster ? [{
 		id: service.id,
 		title: service.title,
-		label: formatRubles(service.priceRub),
 		description: service.description,
 		poster: service.poster,
 	}] : [])

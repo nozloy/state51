@@ -1,3 +1,5 @@
+import type { StaticImageData } from 'next/image'
+
 export interface PosterTopFrame {
 	left: number
 	right: number
@@ -7,7 +9,7 @@ export interface PosterTopFrame {
 }
 
 export interface PosterAsset {
-	src: string
+	src: string | StaticImageData
 	width: number
 	height: number
 	alt: string
@@ -40,7 +42,7 @@ export interface PriceRow {
 export interface OfferCardContent {
 	id: string
 	title: string
-	label: string
+	label?: string
 	description: string
 	poster: PosterAsset
 	prices?: readonly PriceRow[]

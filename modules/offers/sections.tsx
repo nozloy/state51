@@ -9,7 +9,7 @@ export function ServicesSection() {
 			aria-labelledby='services-title'
 			className='flex scroll-mt-6 flex-col gap-8'
 		>
-			<SectionHeading id='services-title' number='01' title='Услуги и цены' />
+			<SectionHeading id='services-title' number='01' title='Услуги' />
 			<OfferGrid offers={getServiceCards()} />
 		</section>
 	)

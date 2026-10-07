@@ -1,3 +1,4 @@
+import firstVisitPoster from '@/public/brand51/client/first-visit.webp'
 import type { PromotionOffer } from './types'
 import { promotionTopFrames } from './poster-frames'
 
@@ -8,7 +9,7 @@ export const promotions: readonly PromotionOffer[] = [
 		discountPercent: 20,
 		conditions: ['На любую услугу из нашего прайса.', 'Только для новых клиентов.'],
 		poster: {
-			src: '/brand51/client/first-visit.webp', width: 1254, height: 1254,
+			src: firstVisitPoster, width: 1254, height: 1254,
 			alt: 'Первый визит: скидка 20 процентов на любую услугу для новых клиентов',
 		},
 	},

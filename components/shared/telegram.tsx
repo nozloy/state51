@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import telegramIllustration from '@/public/brand51/generated/telegram-illustration.webp'
 import { ExternalLink, Send } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -30,8 +31,8 @@ export function Telegram({ className }: Props) {
 				</Badge>
 				<div className={styles.artwork}>
 					<Image
-						src='/brand51/generated/telegram-illustration.webp'
-						alt='Газетчик у барбершопа держит газету «Штат 51 — новости».'
+						src={telegramIllustration}
+						alt='Газетчик у барбершопа держит газету «Штат 51 — новости», а под короной на вывеске написано «СИЛА».'
 						width={1254}
 						height={1254}
 						sizes='(min-width: 1152px) 280px, (min-width: 768px) 25vw, (min-width: 480px) 420px, calc(100vw - 48px)'

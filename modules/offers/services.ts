@@ -1,3 +1,9 @@
+import haircutPoster from '@/public/brand51/client/haircut-framed.webp'
+import comfortHaircutPoster from '@/public/brand51/client/comfort-framed.webp'
+import businessHaircutPoster from '@/public/brand51/client/business-framed.webp'
+import kidsHaircutPoster from '@/public/brand51/client/kids.webp'
+import shavePoster from '@/public/brand51/client/shave-framed.webp'
+import waxPoster from '@/public/brand51/client/wax-framed.webp'
 import type { ServiceOffer } from './types'
 
 export const services: readonly ServiceOffer[] = [
@@ -7,7 +13,7 @@ export const services: readonly ServiceOffer[] = [
 		priceRub: 1800,
 		description: 'Мужская стрижка в «Штате 51».',
 		poster: {
-			src: '/brand51/client/haircut-framed.webp',
+			src: haircutPoster,
 			width: 1233,
 			height: 1275,
 			alt: 'Ретроафиша мужской стрижки',
@@ -20,7 +26,7 @@ export const services: readonly ServiceOffer[] = [
 		description:
 			'Мужская стрижка, удаление воском волос из носа и межбровья. Бесплатная корректировка стрижки в течение 14 дней.',
 		poster: {
-			src: '/brand51/client/comfort-framed.webp',
+			src: comfortHaircutPoster,
 			width: 1224,
 			height: 1285,
 			alt: 'Ретроафиша мужской стрижки «Комфорт»',
@@ -32,7 +38,7 @@ export const services: readonly ServiceOffer[] = [
 		priceRub: 3200,
 		description: 'Мужская стрижка и антивозрастной уход EGIA.',
 		poster: {
-			src: '/brand51/client/business-framed.webp',
+			src: businessHaircutPoster,
 			width: 1254,
 			height: 1254,
 			alt: 'Ретроафиша мужской стрижки «Бизнес» с уходом EGIA',
@@ -44,7 +50,7 @@ export const services: readonly ServiceOffer[] = [
 		priceRub: 1400,
 		description: 'Для детей до 14 лет.',
 		poster: {
-			src: '/brand51/client/kids.webp',
+			src: kidsHaircutPoster,
 			width: 1254,
 			height: 1254,
 			alt: 'Ретроафиша детской стрижки до 14 лет',
@@ -56,7 +62,7 @@ export const services: readonly ServiceOffer[] = [
 		priceRub: 1400,
 		description: 'Бритьё головы или лица — на ваш выбор.',
 		poster: {
-			src: '/brand51/client/shave-framed.webp',
+			src: shavePoster,
 			width: 1240,
 			height: 1269,
 			alt: 'Ретроафиша бритья головы или лица',
@@ -68,7 +74,7 @@ export const services: readonly ServiceOffer[] = [
 		priceRub: 300,
 		description: 'Удаление волос из носа и межбровья.',
 		poster: {
-			src: '/brand51/client/wax-framed.webp',
+			src: waxPoster,
 			width: 1254,
 			height: 1254,
 			alt: 'Ретроафиша удаления волос воском',

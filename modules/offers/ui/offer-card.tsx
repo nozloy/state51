@@ -18,7 +18,8 @@ export function OfferCard({ offer }: { offer: OfferCardContent }) {
 			<CardHeader className='sr-only'>
 				<CardTitle>
 					<h3>
-						{offer.title} · {offer.label}
+						{offer.title}
+						{offer.label && <> · {offer.label}</>}
 					</h3>
 				</CardTitle>
 				<CardDescription>{offer.description}</CardDescription>
