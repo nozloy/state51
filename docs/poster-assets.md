@@ -41,6 +41,38 @@
 а серверный кеш оптимизатора не возвращает прежнее изображение по старому адресу.
 Для production после изменения файлов нужна новая сборка приложения.
 
+## Афиша оформления бороды — 12 ноября 2026 года
+
+К существующей услуге «Оформление бороды» (`s10644202`, 1400 ₽) добавлена
+афиша [beard-shape.webp](../public/brand51/client/beard-shape.webp).
+Теперь услуга отображается в общей сетке и использует ту же ссылку записи,
+что и другие карточки. Стоимость и идентификатор услуги сохранены.
+
+Основа — приложенный заказчиком файл
+`codex-clipboard-4c65c6f2-e792-4be3-a1d5-a3ada6cdd32e.jpg`.
+Встроенный imagegen адаптировал широкую афишу к квадратному формату:
+сокращены боковые поля, восстановлена потёртая рамка, удалена строка адреса.
+Персонаж, название услуги, английские надписи и `EST. 2022` сохранены.
+`shave-framed.webp` использован только как референс оформления.
+Результат сохранён в WebP, 1254 × 1254 px, quality 90 / effort 6
+(431 540 байт), и подключён статическим импортом.
+
+Проверены production standalone-сборка, TypeScript и ESLint (ошибок нет;
+остаётся прежнее предупреждение в `components/shared/user_card.tsx`).
+В браузере при ширине 390 и 1440 px видны 7 карточек услуг: новая афиша
+загружается, сохраняет квадратные пропорции и ведёт на запись `s10644202`.
+Горизонтальной прокрутки и ошибок в консоли нет.
+
+Промпт встроенного imagegen:
+
+> Use case: precise-object-edit.
+> Asset type: a finished vintage barbershop service poster for an existing website card.
+> Input image 1 is the EDIT TARGET: the user's wide landscape poster titled «ОФОРМЛЕНИЕ БОРОДЫ». Input image 2 is a SUPPORTING LAYOUT REFERENCE only: an existing near-square shaving-service card from the same website.
+> Adapt image 1 into a square (1:1) poster by removing the excessive empty beige/blue panels at both far sides, preserving the central composition and artwork faithfully. Keep the same man's exact face, expression, hairstyle, full beard, barber hand, scissors, cape, warm 1950s painted advertising style, orange skin tones, aged cream paper, blue brush textures, black lettering and red ribbon. Use image 2 only to match the tight square framing and finished all-around distressed paper edge; do not introduce its bald man or shaving scene.
+> Keep all these text elements exactly, with the same lettering style and hierarchy: "A Well-Kept Man Always Wins!", "IT'S ALL IN THE DETAILS!", "ОФОРМЛЕНИЕ БОРОДЫ", "Sharp Look Stronger You!", "EST. 2022".
+> Remove ONLY the contact/address line "Царёво Village, Тукая 14" under the red ribbon and seamlessly restore the aged paper. Retain "EST. 2022".
+> Make the title ribbon as legible and prominent as in the original. The complete title, English phrases, scissors and beard must remain visible without cutting them. Reconstruct the worn thin paper border around all four edges of the new square. Preserve the original painting as closely as possible, adapting framing only as needed. No prices, extra slogans, logos, buttons, objects or people. No white exterior margins, no mockup, no layout outside the poster. Output one square poster image.
+
 ## Фоновая текстура
 
 `warm-paper-texture.webp` создана встроенным инструментом imagegen и конвертирована
@@ -68,7 +100,7 @@ Dialog адаптирован из предпросмотра официальн
 По уточнению от 23 сентября в карточках видны только афиша и кнопка записи.
 Афиша открывает увеличение по нажатию; полоса «Рассмотреть» удалена.
 Повторяющиеся названия, цены и описания в карточках и увеличении доступны только
-скринридерам. Три дополнительные услуги, у которых нет отдельных афиш, остаются
+скринридерам. Две дополнительные услуги, у которых нет отдельных афиш, остаются
 в текстовом прайсе. Доступные заголовки Dialog и расчёт скидок сохранены.
 
 ## Проверка реализации

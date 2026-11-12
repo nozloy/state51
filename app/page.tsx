@@ -1,5 +1,3 @@
-import { About } from '@/components/shared/About'
-import { Barbers } from '@/components/shared/barbers'
 import { Footer } from '@/components/shared/footer'
 import { Telegram } from '@/components/shared/telegram'
 import { InviteFriendBanner } from '@/components/shared/invite_friend_banner'

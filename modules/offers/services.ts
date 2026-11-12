@@ -4,6 +4,7 @@ import businessHaircutPoster from '@/public/brand51/client/business-framed.webp'
 import kidsHaircutPoster from '@/public/brand51/client/kids.webp'
 import shavePoster from '@/public/brand51/client/shave-framed.webp'
 import waxPoster from '@/public/brand51/client/wax-framed.webp'
+import beardShapePoster from '@/public/brand51/client/beard-shape.webp'
 import type { ServiceOffer } from './types'
 
 export const services: readonly ServiceOffer[] = [
@@ -84,7 +85,13 @@ export const services: readonly ServiceOffer[] = [
 		id: 's10644202',
 		title: 'Оформление бороды',
 		priceRub: 1400,
-		description: '',
+		description: 'Оформление бороды в «Штате 51».',
+		poster: {
+			src: beardShapePoster,
+			width: 1254,
+			height: 1254,
+			alt: 'Ретроафиша оформления бороды',
+		},
 	},
 	{
 		id: 'correction',

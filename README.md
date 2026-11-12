@@ -6,10 +6,12 @@ Next.js с `output: 'standalone'`. GitHub Actions собирает и прове
 
 ## Локальная разработка
 
-Нужен Node.js 24 LTS.
+Нужен Node.js 24.22.2 LTS (версия зафиксирована в `.nvmrc`).
 
 ```bash
 cp .env.example .env
+nvm install
+nvm use
 npm ci --include=dev
 npm run dev
 ```
@@ -133,10 +135,22 @@ docker run --rm --env-file .env --publish 3000:3000 state51:local
 ```
 
 Для всех стадий задан глобальный `ARG NODE_IMAGE` со значением
-`mirror.gcr.io/library/node:24-bookworm-slim`. Заменить его можно через
+`mirror.gcr.io/library/node:24.22.2-bookworm-slim`. Заменить его можно через
 `--build-arg NODE_IMAGE=<registry>/<image>:<version>`.
 
 Документация: [GHCR](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry),
 [Docker Image в Coolify](https://coolify.io/docs/applications/deployments/docker-image),
 [GitHub Actions и Coolify](https://coolify.io/docs/applications/sources/github/actions),
 [переменные Next.js](https://nextjs.org/docs/app/guides/environment-variables).
+
+## Проверка зависимостей и безопасности
+
+```bash
+npm run lint
+npm run typecheck
+NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 npm run build
+npm run audit
+```
+
+Результаты обновления и оставшиеся риски описаны в
+[аудите от 10 ноября 2026](docs/security-audit-2026-11-10.md).

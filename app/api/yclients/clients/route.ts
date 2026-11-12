@@ -13,7 +13,6 @@ export async function GET() {
 			new Request('https://nozloy.ru/api/yclients/token '),
 		) // можно игнорировать URL
 		const { user_token } = await tokenRes.json()
-		console.log('user_token', user_token)
 		// Делаем запрос к API YCLIENTS
 		const res = await fetch(
 			`https://api.yclients.com/api/v1/company/${YC_COMPANY_ID}/clients/search`,
@@ -33,7 +32,6 @@ export async function GET() {
 		)
 
 		const data = await res.json()
-		console.log('clients data', data)
 		return NextResponse.json(data)
 	} catch (error: unknown) {
 		let message = 'Unknown error'

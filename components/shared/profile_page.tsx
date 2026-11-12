@@ -1,35 +1,20 @@
 'use client'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Suspense, useState } from 'react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { UserCard } from './user_card'
 import { LEGAL_DOC_VERSION } from '@/modules/legal/content'
 import { ConsentLegalCopy } from '@/modules/legal/ui/consent-legal-copy'
+import { useRegistrationContext } from '@/modules/registration/hooks/use-registration-context'
 
 export const ProfilePage: React.FC = () => {
 	const [name, setName] = useState('')
 	const [phone, setPhone] = useState('')
-	const [loading, setLoading] = useState(false)
+	const { user, referral, loading } = useRegistrationContext()
 	const [dataloading, setDataloading] = useState(false)
 	const [status, setStatus] = useState('Начисляем бонусы...')
 	const [message, setMessage] = useState<string | null>(null)
 	const [termsAccepted, setTermsAccepted] = useState(false)
-	const [referral, setReferral] = useState<string>('')
-	const [user, setUser] = useState<User | null>(null)
-
-	useEffect(() => {
-		setLoading(true)
-		const storedUser = localStorage.getItem('yclients_user')
-		if (storedUser) {
-			setUser(JSON.parse(storedUser))
-		}
-		const params = new URLSearchParams(window.location.search)
-		const ref = params.get('referral')
-		if (ref) {
-			setReferral(ref)
-		}
-		setLoading(false)
-	}, [])
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
 		setDataloading(true)
