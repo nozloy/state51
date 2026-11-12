@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
 	const data = await req.json()
-	console.log('Webhook visit received:', data)
 	
 	if (!data?.visit) return NextResponse.json({ skip: true })
 	if (data.visit.type !== 'visit.updated' && data.visit.type !== 'visit.closed')

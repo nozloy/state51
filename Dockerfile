@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG NODE_IMAGE=mirror.gcr.io/library/node:24-bookworm-slim
+ARG NODE_IMAGE=mirror.gcr.io/library/node:24.22.2-bookworm-slim
 
 FROM ${NODE_IMAGE} AS deps
 WORKDIR /app
