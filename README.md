@@ -100,8 +100,8 @@ Actions → Secrets**, добавьте:
 | `COOLIFY_WEBHOOK` | **Deploy Webhook (auth required)** из Configuration → Webhooks ресурса Docker Image |
 | `COOLIFY_TOKEN` | API token Coolify с правом Deploy |
 
-Webhook вызывается только после успешной публикации проверенного образа из
-`main`. Он должен быть доступен из GitHub Actions. Успех шага означает принятие
+Webhook вызывается методом `POST` только после успешной публикации проверенного
+образа из `main`. Он должен быть доступен из GitHub Actions. Успех шага означает принятие
 запроса; завершение деплоя проверяется в Coolify.
 
 ### Откат

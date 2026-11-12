@@ -118,6 +118,6 @@ jobs:
 
           curl --fail --silent --show-error \
             --connect-timeout 10 --max-time 40 \
-            --request GET \
+            --request POST \
             --header "Authorization: Bearer $COOLIFY_TOKEN" \
             "$COOLIFY_WEBHOOK"
